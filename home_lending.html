@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./css/rank.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+      border-top:none;
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #ecdac9;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="navbar1">
+    <center>
+      <div style="max-width:400px;">
+        <div class="iconlink" onClick="window.location='home.html';">
+          <div style="width:28px;"><img src="./img/menu-01.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">หน้าแรก</div>
+        </div>
+        <div class="iconlink" onClick="window.location='home_champion.html';">
+          <div style="width:28px;"><img src="./img/menu-02.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">BA Life</div>
+        </div>
+        <div class="iconlink" onClick="window.location='home_lending.html';" style="background-color: #002d63;">
+          <div style="width:28px;"><img src="./img/menu-03.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">Lending</div>
+        </div>
+        <div class="iconlink" onClick="window.location='home_about.html';">
+          <div style="width:28px;"><img src="./img/menu-04.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ข้อมูล</div>
+        </div>
+     </div>
+    </center>
+  </div>
+
+
+
+  <section>
+    <div><img src="./img/group-lending.jpg" style="width:100%;margin-top:50px;max-height: 300px;"></div>
+  </section>
+
+  <main id="main">
+    <div class="container" style="margin:auto;">
+      <div style="margin:0px auto; width:100%; max-width: 400px;">
+        <div style="margin:25px auto 0 auto; width:100%; max-width: 400px;">
+          <div class="box-menu44" onclick="window.location.href='home_champion.html';"><img src="./img/introduce.png" class="imgBall1"><br>ข้อมูลการ<br>แบ่งสาย</div>
+          <div class="box-menu4" onclick="window.location.href='home_leaderpoint.html';"><img src="./img/leaderboard.png" class="imgBall1"><br>ผลงานตาม<br>สายแข่งขัน</div>
+          <div class="box-menu4" onclick="window.location.href='home_leader.html';"><img src="./img/rewards.png" class="imgBall1"><br>อันดับตาม<br>สายแข่งขัน</div>
+          <div class="box-menu4" onclick="window.location.href='home_allzone.html';"><img src="./img/intro.png" class="imgBall1"><br>ภาพรวม<br>ทุก Zone</div>
+        </div>
+        <div class="clr"></div>
+        <div class="text-44" style="margin-top:6px;">คลิกเลือกเมนูที่ต้องการดูข้อมูล</div>
+      </div>
+      <div class="clr"></div>
+      <div style="width:100%; margin:auto;">
+        <div style="margin:20px auto 10px auto;width:200px;">
+          <div class="box-menu1" onclick="SelectBox('A')" id="1"><div class="text-4">สาย</div><div class="text-6">A</div>
+            <div class="text-5">RH1-RH6</div></div>
+          <div class="box-menu1" onclick="SelectBox('B')" id="2"><div class="text-4">สาย</div><div class="text-6">B</div>
+            <div class="text-5">RH3-RH5</div></div>
+          <div class="box-menu1" onclick="SelectBox('C')" id="3"><div class="text-4">สาย</div><div class="text-6">C</div>
+            <div class="text-5">RH2-RH4</div></div>
+        </div>
+        <div class="clr"></div>
+        <div class="text-44">คลิกเลือกสายงานที่ต้องการดูข้อมูล</div>
+      </div>
+      <div style="margin:0px auto; width:100%; max-width: 400px;">
+        <center>
+        <div id="DisplaySum" style="margin-top:10px;"></div>
+        </center>
+        <div id="DisplayTeam" style="width:100%; max-width: 400px;"></div>
+      </div>
+<!--
+-->
+    </div>
+  </main>
+
+  <center>
+    <div class="btn-t6" onclick="window.location.href='home.html';" style="margin-top:25px;">กลับหน้าแรก</div>
+  </center>
+
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;margin:auto;">
+        <div id="DisplayProfile"></div>
+      </div>
+    </div>
+    <div class="clr" style="height:70px;"></div>
+  </div>
+
+  <footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="footer-main">
+      @<span class="footer-font-green">LINE</span> 
+      <span class="footer-font-navi">Retail</span> 
+      <span class="footer-font-blue">So</span><span class="footer-font-org">ciety</span>
+    </div>
+    <div class="clr" style="height: 40px;"></div>
+  </footer>
+
+<script src="./js/home_lending.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #dbe5f3;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="navbar1">
+    <center>
+      <div style="max-width:400px;">
+        <div class="iconlink" onClick="window.location='home.html';">
+          <div style="width:28px;"><img src="./img/menu-01.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">หน้าแรก</div>
+        </div>
+        <div class="iconlink" onClick="window.location='home_champion.html';">
+          <div style="width:28px;"><img src="./img/menu-02.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">BA Life</div>
+        </div>
+        <div class="iconlink" onClick="window.location='home_leading.html';">
+          <div style="width:28px;"><img src="./img/menu-03.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">Leading</div>
+        </div>
+        <div class="iconlink" onClick="window.location='home_about.html';">
+          <div style="width:28px;"><img src="./img/menu-04.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ข้อมูล</div>
+        </div>
+     </div>
+    </center>
+  </div>
+
+
+  <main id="main">
+    <div><img src="./img/rh4.jpg" style="width:100%;margin-top:50px;max-height: 300px;"></div>
+    <div class="container">
+      <center>
+        <div style="margin-top:15px;"><img src="./img/bg-header.png" style="width:300px;">
+          <div style="margin-top:-30px;color:#fff;">Region Championship</div>
+        </div>
+      </center>
+      <div class="clr"></div>
+      <div style="margin:30px auto 0 auto; width:95%; max-width: 300px;">
+        <div class="box-menu4" onclick="window.location.href='rhpointmonth.html';"><img src="./img/leaderboard.png" class="imgBall1"><br>ผลงาน<br>สะสม RH</div>
+        <div class="box-menu4" onclick="window.location.href='leaderpointrh.html';"><img src="./img/rewards.png" class="imgBall1"><br>ผลงาน<br>ZONE / RH</div>
+        <div class="box-menu4" onclick="window.location.href='ape-achievement.html';" style="width:23;"><img src="./img/intro.png" class="imgBall1"><br>% APE<br>Achievement</div>
+
+        <div class="box-menu44" onclick="window.location.href='product-achievement.html';" style="width:23%;"><img src="./img/intro.png" class="imgBall1"><br>% Focus<br>Product</div>
+      </div>
+
+      <center>
+        <div style="margin:auto; width:100%; max-width: 400px;">
+          <div class="clr"></div>
+          <div class="text-44">คลิกเลือกเมนูที่ต้องการดูข้อมูล</div>
+          <div class="clr"></div>
+
+
+          <div class="btn-t33" style="margin-top:30px;background-color: #94a9b3;border:1px solid #94a9b3;">หมวด % Focus Product Achievement<br>ภาพรวมเดือน ตค.-ธค. 2565</div>
+          <div class="clr"></div>
+          <div id="DisplayWaittingTarget" style="display:block;">
+            <div class="text-2" style="margin:10px auto;"><img src="./img/loading.gif" style="width:20px;"><br><br>L o a d i n g</div>
+          </div>
+          <div id="DisplayTarget" style="display:none;"></div>
+
+
+          <div id="DisplayWaitting" style="display:block;">
+            <div class="text-2" style="margin:80px auto;"><img src="./img/loading.gif" style="width:20px;"><br><br>L o a d i n g</div>
+          </div>
+          <div id="DisplayReport" style="display:none;"></div>
+          <div class="clr"></div>
+          <div class="text-44" style="margin-top:10px;">คลิกเพื่อดูข้อมูลของโซน และข้อมูลของ RH</div>
+
+          <div class="btn-t6" onclick="window.location.href='home.html';" style="margin-top:40px;">กลับหน้าแรก</div>
+        </div>
+      </center>
+    </div>
+  </main>
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="width:100%;margin:auto;">
+        <div id="DisplayProfile"></div>
+      </div>
+    </div>
+    <div class="clr" style="height:50px;"></div>
+  </div>
+
+  <footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="footer-main">
+      @<span class="footer-font-green">LINE</span> 
+      <span class="footer-font-navi">Retail</span> 
+      <span class="footer-font-blue">So</span><span class="footer-font-org">ciety</span>
+    </div>
+    <div class="clr" style="height: 40px;"></div>
+  </footer>
+  <script src="./js/product-achievement.js"></script>
+
+</body>
+</html>
