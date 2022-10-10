@@ -50,8 +50,8 @@ function Connect_DB() {
     measurementId: "G-9SKTRHHSW9"
   };
   firebase.initializeApp(firebaseConfig);
-  dbBBDRH = firebase.firestore().collection("Championship_RH");
-  dbBBDKickoff = firebase.firestore().collection("Championship_Zone");
+  dbBBDRH = firebase.firestore().collection("Championship_LendRH");
+  dbBBDKickoff = firebase.firestore().collection("Championship_LendZone");
   dbLeagueMember = firebase.firestore().collection("BBD_LeagueMember");
   //CheckScore();
 }
@@ -85,7 +85,7 @@ function SelectBox(x) {
   for (i = 1; i < 3; i++) {
     document.getElementById(i).classList.remove('box-menu44');
   }   
-    console.log(x);
+    //console.log(x);
   if(x!="") {
     //document.getElementById('loading').style.display='block';
     xClickMenu = x;
@@ -112,10 +112,12 @@ function TargetAPE() {
   dbBBDRH.orderBy('TotalRank','asc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
-      MTDTarget = MTDTarget + parseFloat(doc.data().MTDTarget_1);
-      MTDIssue = MTDIssue + parseFloat(doc.data().MTDIssue_1);
+      MTDTarget = MTDTarget + parseFloat(doc.data().MTDTarget_3);
+      MTDIssue = MTDIssue + parseFloat(doc.data().MTDIssue_3);
     });
+    console.log(MTDTarget+"==="+MTDIssue);
     MTDTarget = ((MTDIssue / MTDTarget) * 100).toFixed(2);
+    console.log(MTDTarget);
     str += '<div class="bar_background"><div style="padding-top:8px;"><div class="bar_body">'+xMonth+'</div>';
     str += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar2" style="width:'+ MTDTarget +'%"></div></div>';
     str += '<div class="bar_body1" style="width:15%;margin-left:10px;">'+ MTDTarget +'%</div></div><div class="clr"></div></div>';
@@ -132,34 +134,34 @@ function TargetAPE() {
 function Achievement() {
   var str = "";
   var sRH = "";
-  str += '<div class="btn-t33" style="margin-top:30px; background-color: #94a9b3;border: solid #94a9b3 1px;">หมวด % Focus Product Achievement<br>'+xMonthDetail+'</div>';
+  str += '<div class="btn-t33" style="margin-top:30px; background-color: #94a9b3;border: solid #94a9b3 1px;">หมวด % CC+FC Achievement<br>'+xMonthDetail+'</div>';
   str += '<div style="margin:10px auto;text-align: center; width:90%;">';
   str += '<div style="width:30%;float: left;text-align: left;"><img src="./img/click-1.png"></div><div style="width:40%;float: left;">&nbsp;</div>';
   str += '<div style="width:30%;float: left;text-align: right;"><img src="./img/click-2.png"></div></div><div class="clr"></div>';
-  dbBBDRH.orderBy('TotalRank','asc')
+  dbBBDRH.orderBy('Achieve_3','desc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       if(sRH=="") { sRH = doc.data().EmpRH; }
       str += '<div class="bar_background"><div style="padding-top:8px;">';
       str += '<div class="bar_body"><div class="btn-t66" onclick="ShowZone(\''+ doc.data().EmpRH +'\')">'+ doc.data().EmpRH +'</div></div>';
-      if(doc.data().MTDTarget_1<doc.data().MTDIssue_1) { 
-        str += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar4" style="width:'+ doc.data().APEAchieve_1 +'"></div></div>';
+      if(doc.data().MTDTarget_3<doc.data().MTDIssue_3) { 
+        str += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar4" style="width:'+ doc.data().Achieve_3 +'"></div></div>';
       } else {
-        str += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar2" style="width:'+ doc.data().APEAchieve_1 +'"></div></div>';
+        str += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar2" style="width:'+ doc.data().Achieve_3 +'"></div></div>';
       }
-      str += '<div class="bar_body1" onclick="OpenProfile(\''+ doc.id +'\')" style="width:15%;margin-left:10px;">'+ doc.data().APEAchieve_1 +'</div>';
+      str += '<div class="bar_body1" onclick="OpenProfile(\''+ doc.id +'\')" style="width:15%;margin-left:10px;">'+ doc.data().Achieve_3 +'</div>';
       str += '</div><div class="clr"></div></div>';
       if(doc.data().EmpRH!=sRH) {
         var str1 = "";
         dbBBDKickoff.where('EmpRH','==', doc.data().EmpRH)
-        .orderBy('EmpZone','asc')
+        .orderBy('Achieve_3','desc')
         .get().then((snapshot)=> {
           snapshot.forEach(doc=> {
-            console.log(doc.data().EmpZone);
+            //console.log(doc.data().EmpZone);
             str1 += '<div class="bar_background"><div style="padding-top:8px;">';
             str1 += '<div class="bar_body"><div class="btn-t66" onclick="OpenProfile1(\''+ doc.id +'\')">'+ doc.data().EmpZone +'</div></div>';
-            str1 += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar2" style="width:'+ doc.data().APEAchieve_1 +'"></div></div>';
-            str1 += '<div class="bar_body1">'+ doc.data().APEAchieve_1 +'</div>';
+            str1 += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar2" style="width:'+ doc.data().Achieve_3 +'"></div></div>';
+            str1 += '<div class="bar_body1">'+ doc.data().Achieve_3 +'</div>';
             str1 += '</div><div class="clr"></div></div>';
           });
           str += ''+str1;
@@ -177,20 +179,19 @@ function Achievement() {
 
 function ShowZone(RH) {
   var str = "";
-  //alert(RH);
-  str += '<center><div class="btn-t4" style="margin-top:30px;margin-bottom: 14px;">หมวด % APE Achievement<br>'+xThisMonth+'<br>สำนักงานภาคธุรกิจสาขา -> '+RH+'</div>';
+  str += '<center><div class="btn-t4" style="margin-top:30px;margin-bottom: 14px;">หมวด % CC+FC Achievement<br>'+xThisMonth+'<br>สำนักงานภาคธุรกิจสาขา สังกัด '+RH+'</div>';
   dbBBDKickoff.where('EmpRH','==', RH)
-  .orderBy('TotalRank','asc')
+  .orderBy('Achieve_3','desc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       str += '<div class="bar_background" style="width:95%;"><div style="padding-top:8px;">';
       str += '<div class="bar_body" style="width:30%;margin-right:6px;"><div class="btn-t666">'+ doc.data().EmpZone +'</div></div>';
-      if(doc.data().MTDTarget_1<doc.data().MTDIssue_1) {
-        str += '<div class="progress2" style="float: left;width:46%;margin-top:6px;"><div class="bar4" style="width:'+ doc.data().APEAchieve_1 +'"></div></div>';
+      if(doc.data().MTDTarget_3<doc.data().MTDIssue_3) {
+        str += '<div class="progress2" style="float: left;width:46%;margin-top:6px;"><div class="bar4" style="width:'+ doc.data().Achieve_3 +'"></div></div>';
       } else {
-        str += '<div class="progress2" style="float: left;width:46%;margin-top:6px;"><div class="bar3" style="width:'+ doc.data().APEAchieve_1 +'"></div></div>';
+        str += '<div class="progress2" style="float: left;width:46%;margin-top:6px;"><div class="bar3" style="width:'+ doc.data().Achieve_3 +'"></div></div>';
       }
-      str += '<div class="bar_body">'+ doc.data().APEAchieve_1 +'</div>';
+      str += '<div class="bar_body">'+ doc.data().Achieve_3 +'</div>';
       str += '</div><div class="clr"></div></div>';
     });
     str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
@@ -202,11 +203,11 @@ function ShowZone(RH) {
 
 }
 
-
+/*
 function SuccessSeller() {
   var str = "";
   str += '<div class="btn-t33" style="margin-top:30px; background-color: #94a9b3;border: solid #94a9b3 1px;">เป้าหมาย % Success Seller<br> เดือนกรกฎาคม 2565</div>';
-  dbBBDRH.orderBy('EmpRH','asc')
+  dbBBDRH.orderBy('TotalRank','asc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       str += '<div class="bar_background"><div style="padding-top:8px;">';
@@ -239,7 +240,7 @@ function ProductMix() {
     document.getElementById('DisplayReport').style.display='block';
   })
 }
-
+*/
 
 function OpenProfile(uid) {
   var str = "";
@@ -247,41 +248,51 @@ function OpenProfile(uid) {
   .get().then((snapshot)=> {
   snapshot.forEach(doc=> {
       const results = LinePictureArr.filter(obj => {return obj.EmpID === doc.data().EmpID;});
-
       str += '<center>';
       str += '<div><img src="'+results[0].EmpPicture+'" class="add-profile" style="margin:30px auto 0px auto;" onerror="javascript:imgError(this)"></div>';
       str += '<div class="text-1">'+doc.data().EmpName+'</div>';
-      str += '<div class="text-2" style="margin-top:0px;"><b>'+doc.data().EmpPosition+'</b> ('+ doc.data().EmpRH+')</div>';
-      str += '<div class="btn-t4">ผลงาน -> '+doc.data().Total_100+' | อันดับ -> '+doc.data().TotalRank+'</div>';
+      str += '<div class="text-2" style="margin-top:0px;"><b>เขตธุรกิจสาขา-'+doc.data().EmpZone+' ('+doc.data().EmpRH+')</b><br>สาย <b>'+ doc.data().Round1+ '</b></div>';
+      str += '<div class="btn-t4">ผลงาน -> '+doc.data().Target_Total+' | อันดับ -> '+doc.data().TotalRank+'</div>';
 
       str += '<div>';
-      str += '<div class="btn-t77">1. หมวด % APE Achievement</div>';
+      str += '<div class="btn-t77">1. หมวด CYH Achievement</div>';
       str += '<table class="table table-bordered table-hover" style="width:90%; max-width: 400px; margin:auto;">';
       str += '<thead class="thead-dark"><tr><th scope="col" class="col_td">รายการ</th><th scope="col" class="col_td">รายละเอียด</th></thead>';
       str += '<tbody>';
-      str += '<tr><th scope="row">MTD Target</th><td style="text-align:center;">'+doc.data().MTDTarget_1+'</td></tr>';
-      str += '<tr><th scope="row">MTD Issue</th><td style="text-align:center;">'+doc.data().MTDIssue_1+'</td></tr>';
-      str += '<tr><th scope="row">% APE Achievement</th><td style="text-align:center;">'+doc.data().APEAchieve_1+'</td></tr>';
+      str += '<tr><th scope="row">MTD Target</th><td style="text-align:center;">'+doc.data().MTDTarget_3+'</td></tr>';
+      str += '<tr><th scope="row">MTD Drawdown</th><td style="text-align:center;">'+doc.data().MTDIssue_3+'</td></tr>';
+      str += '<tr><th scope="row">% Achievement</th><td style="text-align:center;">'+doc.data().Achieve_3+'</td></tr>';
       str += '</tbody>';
       str += '</table>';
 
-      str += '<div class="btn-t77">2. หมวด % Focus Product Achievement</div>';
+      str += '<div class="btn-t77">2. หมวด C2G+BT+CCC Achievement</div>';
       str += '<table class="table table-bordered table-hover" style="width:90%; max-width: 400px; margin:auto;">';
       str += '<thead class="thead-dark"><tr><th scope="col" class="col_td">รายการ</th><th scope="col" class="col_td">รายละเอียด</th></thead>';
       str += '<tbody>';
-      str += '<tr><th scope="row">Target</th><td style="text-align:center;">'+doc.data().ProductTarget_2+'</td></tr>';
-      str += '<tr><th scope="row">Product Focus</th><td style="text-align:center;">'+doc.data().ProductFocus_2 +'</td></tr>';
-      str += '<tr><th scope="row">% Target Focus Product</th><td style="text-align:center;">'+doc.data().ProductAchieve_2+'</td></tr>';
+      str += '<tr><th scope="row">MTD Target</th><td style="text-align:center;">'+doc.data().MTDTarget_3+'</td></tr>';
+      str += '<tr><th scope="row">MTD Drawdown</th><td style="text-align:center;">'+doc.data().MTDIssue_3+'</td></tr>';
+      str += '<tr><th scope="row">% Achievement</th><td style="text-align:center;">'+doc.data().Achieve_3+'</td></tr>';
       str += '</tbody>';
       str += '</table>';
 
-      str += '<div class="btn-t77">3. Total % Weighted</div>';
+      str += '<div class="btn-t77">3. หมวด CC+FC Achievement</div>';
       str += '<table class="table table-bordered table-hover" style="width:90%; max-width: 400px; margin:auto;">';
       str += '<thead class="thead-dark"><tr><th scope="col" class="col_td">รายการ</th><th scope="col" class="col_td">รายละเอียด</th></thead>';
       str += '<tbody>';
-      str += '<tr><th scope="row">50% APE Achievement</th><td style="text-align:center;">'+doc.data().APE_50+'</td></tr>';
-      str += '<tr><th scope="row">50% Focused Product</th><td style="text-align:center;">'+doc.data().Product_50+'</td></tr>';
-      str += '<tr><th scope="row">% Total</th><td style="text-align:center;">'+doc.data().Total_100+'</td></tr>';
+      str += '<tr><th scope="row">MTD Target</th><td style="text-align:center;">'+doc.data().MTDTarget_3+'</td></tr>';
+      str += '<tr><th scope="row">MTD Card Approved</th><td style="text-align:center;">'+doc.data().MTDIssue_3+'</td></tr>';
+      str += '<tr><th scope="row">% Achievement</th><td style="text-align:center;">'+doc.data().Achieve_3+'</td></tr>';
+      str += '</tbody>';
+      str += '</table>';
+
+      str += '<div class="btn-t77">4. Total % Weighted</div>';
+      str += '<table class="table table-bordered table-hover" style="width:90%; max-width: 400px; margin:auto;">';
+      str += '<thead class="thead-dark"><tr><th scope="col" class="col_td">รายการ</th><th scope="col" class="col_td">รายละเอียด</th></thead>';
+      str += '<tbody>';
+      str += '<tr><th scope="row">35% CYH Achievement</th><td style="text-align:center;">'+doc.data().Target_1+'</td></tr>';
+      str += '<tr><th scope="row">35% C2G+BT+CCC Achievement</th><td style="text-align:center;">'+doc.data().Target_2+'</td></tr>';
+      str += '<tr><th scope="row">30% CC+FC Achievement</th><td style="text-align:center;">'+doc.data().Target_3+'</td></tr>';
+      str += '<tr><th scope="row">% Total</th><td style="text-align:center;">'+doc.data().Target_Total+'</td></tr>';
       str += '<tr><th scope="row">Rank</th><td style="text-align:center;">'+doc.data().TotalRank+'</td></tr>';
       str += '</tbody>';
       str += '</table>';
@@ -289,8 +300,6 @@ function OpenProfile(uid) {
       str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
       str += '<div class="clr" style="height: 25px;"></div>';
       str += '</center>';
-
-
     });
     $("#DisplayProfile").html(str);  
     document.getElementById("id01").style.display = "block";
@@ -299,7 +308,6 @@ function OpenProfile(uid) {
 
 function CloseAll() {
   document.getElementById('id01').style.display='none';
-  //document.getElementById('id02').style.display='none';
 }
 
 

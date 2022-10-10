@@ -63,7 +63,15 @@ function loadData() {
       str += '<td class="td-center td-padding" style="width:18%;text-align:center;"><img src="'+results[0].EmpPicture+'" class="profile-team" onerror="javascript:imgError(this)" style="margin-top:14px;"></td>';
       str += '<td class="td-padding" style="width:83%;padding-top:5px;"><font color="#0056ff"><b>สนข. '+doc.data().EmpZone+' ('+doc.data().EmpRH+')</b></font>';
       str += '<font color="#002d63"><br><b>คุณ'+doc.data().EmpName+'</b></font><br><b>อันดับที่ : '+doc.data().TotalRank+' | ผลงาน : '+doc.data().Total_100+'</b>';
-      str += '<div class="progress2" style="float: left;width:90%;margin-top:3px;"><div class="bar2" style="width:'+ doc.data().Total_100 +'"></div></div>';
+
+      if(parseInt(doc.data().Total_100)> 100) {
+        str += '<div class="progress2" style="float: left;width:90%;margin-top:3px;"><div class="bar4" style="width:'+ doc.data().Total_100 +'"></div></div>';        
+      } else {
+        str += '<div class="progress2" style="float: left;width:90%;margin-top:3px;"><div class="bar3" style="width:'+ doc.data().Total_100 +'"></div></div>';        
+      }
+
+
+      //str += '<div class="progress2" style="float: left;width:90%;margin-top:3px;"><div class="bar2" style="width:'+ doc.data().Total_100 +'"></div></div>';
       str += '</td>';
 
       str += '<td class="td-center td-padding" onclick="OpenProfile(\''+ doc.id +'\')"><div class="btn-t1" style="width:40px;margin-top:20px;font-size:9px;">View</div></td>';

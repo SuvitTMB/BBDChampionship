@@ -30,8 +30,7 @@ var F3 = 0;
 
 
 $(document).ready(function() {
-  //document.getElementById(1).classList.add('box-menu44');
-  //if(sessionStorage.getItem("EmpID_Kickoff")==null) { location.href = "index.html"; }
+  if(sessionStorage.getItem("EmpID_Kickoff")==null) { location.href = "index.html"; }
   Connect_DB();
   GetLinePicture();
   TargetAPE();
@@ -110,7 +109,7 @@ var MTDIssue = 0;
 var MTDRatio = 0;
 function TargetAPE() {
   str = "";
-  dbBBDRH.orderBy('EmpRH','asc')
+  dbBBDRH.orderBy('TotalRank','asc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       MTDTarget = MTDTarget + parseFloat(doc.data().ProductTarget_2);
@@ -137,7 +136,7 @@ function Achievement() {
   str += '<div style="margin:10px auto;text-align: center; width:90%;">';
   str += '<div style="width:30%;float: left;text-align: left;"><img src="./img/click-1.png"></div><div style="width:40%;float: left;">&nbsp;</div>';
   str += '<div style="width:30%;float: left;text-align: right;"><img src="./img/click-2.png"></div></div><div class="clr"></div>';
-  dbBBDRH.orderBy('EmpRH','asc')
+  dbBBDRH.orderBy('TotalRank','asc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       if(sRH=="") { sRH = doc.data().EmpRH; }
@@ -157,7 +156,7 @@ function Achievement() {
         //ShowZone(doc.data().EmpRH);
         var str1 = "";
         dbBBDZone.where('EmpRH','==', doc.data().EmpRH)
-        .orderBy('EmpZone','asc')
+        .orderBy('TotalRank','asc')
         .get().then((snapshot)=> {
           snapshot.forEach(doc=> {
             console.log(doc.data().EmpZone);
@@ -186,7 +185,7 @@ function ShowZone(RH) {
   str += '<center><div class="btn-t4" style="margin-top:30px;margin-bottom: 14px;">หมวด % Focus Product Progress<br>ข้อมูล'+xThisMonth+'<br>สำนักงานภาคธุรกิจสาขา -> '+RH+'</div>';
   dbBBDZone.where('EmpRH','==', RH)
   .orderBy('ProductFocus_2','desc')
-  .orderBy('EmpZone','asc')
+  .orderBy('TotalRank','asc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       str += '<div class="bar_background"><div style="padding-top:8px;">';

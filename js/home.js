@@ -392,7 +392,7 @@ function OpenLink(page) {
   } else if(page==5) { // เอกสารอบรม
     location.href = 'rhpointmonth.html';
   } else if(page==6) {
-    location.href = 'home_lending.html';
+    location.href = 'lendingproduct.html';
   }
   //location.href = 'notwork.html';
 }

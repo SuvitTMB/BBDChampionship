@@ -3,11 +3,11 @@ var xLeague = "Champion League";
 var xClickMenu = "A";
 var xRatio = 18;
 
-$(document).ready(function () {
-  if(sessionStorage.getItem("EmpID_Kickoff")==null) { location.href = "index.html"; }
-  Connect_DB()
-  document.getElementById(1).classList.add('box-menu2');
 
+$(document).ready(function() {
+  if(sessionStorage.getItem("EmpID_Kickoff")==null) { location.href = "index.html"; }
+  Connect_DB();
+  document.getElementById(1).classList.add('box-menu2');
 });
 
 
@@ -26,8 +26,7 @@ function Connect_DB() {
   dbBBDKickoff = firebase.firestore().collection("Championship_LendZone");
   dbLeagueMember = firebase.firestore().collection("BBD_LeagueMember");
   GetLinePicture();
-  loadData();
-  //loadUser();
+  CheckScore();
 }
 
 
@@ -47,37 +46,73 @@ function GetLinePicture() {
 }
 
 
-
-function loadData() {
+function CheckScore() {
+  console.log(xClickMenu);
   var i = 0;
-  var str = "";
-  str += '<table class="table" style="width:95%; margin:10px auto;"><tbody>';
   dbBBDKickoff
+  //.where('League','==', xLeague)
   .where('Round1','==', xClickMenu)
   .orderBy('TotalRank','asc')
-  //.orderBy('EmpZone','asc')
+  .orderBy('Target_Total','desc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
-      const results = LinePictureArr.filter(obj => {return obj.EmpID === doc.data().EmpID;});
-      str += '<tr onclick="OpenProfile(\''+ doc.id +'\')" class="LinkProfile">';
-      str += '<td class="td-center td-padding" style="width:18%;text-align:center;"><img src="'+results[0].EmpPicture+'" class="profile-team" onerror="javascript:imgError(this)" style="margin-top:14px;"></td>';
-      str += '<td class="td-padding" style="width:83%;padding-top:5px;"><font color="#0056ff"><b>สนข. '+doc.data().EmpZone+' ('+doc.data().EmpRH+')</b></font>';
-      str += '<font color="#002d63"><br><b>คุณ'+doc.data().EmpName+'</b></font><br><b>อันดับที่ : '+doc.data().TotalRank+' | ผลงาน : '+doc.data().Target_Total+'</b>';
-      if(parseInt(doc.data().Target_Total)> 100) {
-        str += '<div class="progress2" style="float: left;width:90%;margin-top:3px;"><div class="bar4" style="width:'+ doc.data().Target_Total +'"></div></div>';        
-      } else {
-        str += '<div class="progress2" style="float: left;width:90%;margin-top:3px;"><div class="bar3" style="width:'+ doc.data().Target_Total +'"></div></div>';        
+      console.log(doc.data().EmpZone+" === "+doc.data().Target_Total);
+      if(i==0) {
+        id0 = doc.id;
+        n0 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a0 = parseFloat(doc.data().Target_Total);
+      } else if(i==1) { 
+        id1 = doc.id;
+        n1 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a1 = parseFloat(doc.data().Target_Total).toFixed(2);
+      } else if(i==2) { 
+        id2 = doc.id;
+        n2 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a2 = parseFloat(doc.data().Target_Total).toFixed(2);
+
+      } else if(i==3) { 
+        id3 = doc.id;
+        n3 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a3 = parseFloat(doc.data().Target_Total).toFixed(2);
+      } else if(i==4) { 
+        id4 = doc.id;
+        n4 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a4 = parseFloat(doc.data().Target_Total).toFixed(2);
+      } else if(i==5) { 
+        id5 = doc.id;
+        n5 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a5 = parseFloat(doc.data().Target_Total).toFixed(2);
+      } else if(i==6) { 
+        id6 = doc.id;
+        n6 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a6 = parseFloat(doc.data().Target_Total).toFixed(2);
+      } else if(i==7) { 
+        id7 = doc.id;
+        n7 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a7 = parseFloat(doc.data().Target_Total).toFixed(2);
+      } else if(i==8) { 
+        id8 = doc.id;
+        n8 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a8 = parseFloat(doc.data().Target_Total).toFixed(2);
+      } else if(i==9) { 
+        id9 = doc.id;
+        n9 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a9 = parseFloat(doc.data().Target_Total).toFixed(2);
+      } else if(i==10) { 
+        id10 = doc.id;
+        n10 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a10 = parseFloat(doc.data().Target_Total).toFixed(2);
+      } else if(i==11 && xClickMenu!="C") { 
+        id11 = doc.id;
+        n11 = doc.data().EmpZone+" ("+doc.data().EmpRH+")";
+        a11 = parseFloat(doc.data().Target_Total).toFixed(2);
       }
-      str += '</td>';
-      str += '<td class="td-center td-padding" onclick="OpenProfile(\''+ doc.id +'\')"><div class="btn-t1" style="width:40px;margin-top:20px;font-size:9px;">View</div></td>';
-      str += '</tr>';
       i++;
-    }); 
-    str += '</tbody></table>';
-    $("#DisplayTeam").html(str);  
-    $("#DisplaySum").html("<div class='btn-t33' style='background-color: #94a9b3;border: solid #94a9b3 1px;margin-top:15px;'>ข้อมูลการแบ่งสายการแข่งขัน<br>สาย  "+ xClickMenu +" จำนวน "+ i +" สำนักงานเขตธุรกิจสาขา</div>");  
+    });
+    NewSet();
   });
 }
+
 
 
 function SelectBox(x) {
@@ -94,19 +129,95 @@ function SelectBox(x) {
     document.getElementById(i).classList.remove('box-menu2');
   }   
   if(x!="") {
+    //document.getElementById('loading').style.display='block';
     xClickMenu = x;
-    //console.log(xx+"==="+x);
+    //console.log(xx);
     document.getElementById(xx).classList.add('box-menu2');
-    loadData()
+    CheckScore()
   }
 }
 
 
+function NewSet() {
+  str = '';
+  str += '<div style="margin:10px auto;text-align: center; width:95%;">';
+  str += '<div style="width:30%;float: left;text-align: left;"><img src="./img/click-1.png"></div><div style="width:60%;float: left;">&nbsp;</div>';
+  str += '</div><div class="clr" style="height:10px;"></div>';
 
-function OpenTeam(x) {
-  xClickMenu = x;
-  loadData()
-  //location.href = 'team.html?gid='+x;
+  str += "<div class='bar' onclick='OpenProfile(\""+ id0 +"\")'>";
+  var a00 = parseFloat(a0);
+  if(parseFloat(a00)>=100) { a00=100; }
+  str += "<div class='bar-info rsoc6' data-total="+ a00 +">"+ n0 +"";
+  str += "<span class='percent' style='float: right;'>"+ a0 +"</span></div></div>";  
+
+  str += "<div class='bar' onclick='OpenProfile(\""+ id1 +"\")'>";
+  var a01 = parseFloat(a1);
+  if(parseFloat(a01)>=100) { a01=100; } 
+  str += "<div class='bar-info rsoc4' data-total="+ a01 +">"+ n1 +"";
+  str += "<span class='percent' style='float: right;'>"+ a1 +"</span></div></div>";  
+
+  str += "<div class='bar' onclick='OpenProfile(\""+ id2 +"\")'>";
+  var a02 = parseFloat(a2);
+  if(parseFloat(a02)>=100) { a02=100; } 
+  str += "<div class='bar-info rsoc3' data-total="+ a02 +">"+ n2 +"";
+  str += "<span class='percent' style='float: right;'>"+ a2 +"</span></div></div>";  
+
+  str += "<div class='bar' onclick='OpenProfile(\""+ id3 +"\")'>";
+  var a03 = parseFloat(a3);
+  if(parseFloat(a03)>=100) { a03=100; } 
+  str += "<div class='bar-info rsoc5' data-total="+ a03 +">"+ n3 +"";
+  str += "<span class='percent' style='float: right;'>"+ a3 +"</span></div></div>";  
+
+
+  //str += "<div class='bar' onclick='OpenProfile(\""+ id1 +"\")'><div class='bar-info rsoc4' data-total="+ a1 +">"+ n1 +"";
+  //str += "<span class='percent' style='float: right;'>"+ a1 +"</span></div></div>";  
+  //str += "<div class='bar' onclick='OpenProfile(\""+ id2 +"\")'><div class='bar-info rsoc3' data-total="+ a2 +">"+ n2 +"";
+  //str += "<span class='percent' style='float: right;'>"+ a2 +"</span></div></div>";  
+  //str += "<div class='bar' onclick='OpenProfile(\""+ id3 +"\")'><div class='bar-info rsoc5' data-total="+ a3 +">"+ n3 +"";
+  //str += "<span class='percent' style='float: right;'>"+ a3 +"</span></div></div>";  
+  str += "<div class='bar' onclick='OpenProfile(\""+ id4 +"\")'><div class='bar-info rsoc2' data-total="+ a4 +">"+ n4 +"";
+  str += "<span class='percent' style='float: right;'>"+ a4 +"</span></div></div>";  
+
+  str += "<div class='bar' onclick='OpenProfile(\""+ id5 +"\")'><div class='bar-info rsoc7' data-total="+ a5 +">"+ n5 +"";
+  str += "<span class='percent' style='float: right;'>"+ a5 +"</span></div></div>";  
+  str += "<div class='bar' onclick='OpenProfile(\""+ id6 +"\")'><div class='bar-info rsoc8' data-total="+ a6 +">"+ n6 +"";
+  str += "<span class='percent' style='float: right;'>"+ a6 +"</span></div></div>";  
+  str += "<div class='bar' onclick='OpenProfile(\""+ id7 +"\")'><div class='bar-info rsoc9' data-total="+ a7 +">"+ n7 +"";
+  str += "<span class='percent' style='float: right;'>"+ a7 +"</span></div></div>";  
+  str += "<div class='bar' onclick='OpenProfile(\""+ id8 +"\")'><div class='bar-info rsoc10' data-total="+ a8 +">"+ n8 +"";
+  str += "<span class='percent' style='float: right;'>"+ a8 +"</span></div></div>";  
+  str += "<div class='bar' onclick='OpenProfile(\""+ id9 +"\")'><div class='bar-info rsoc11' data-total="+ a9 +">"+ n9 +"";
+  str += "<span class='percent' style='float: right;'>"+ a9 +"</span></div></div>";  
+  str += "<div class='bar' onclick='OpenProfile(\""+ id10 +"\")'><div class='bar-info rsoc12' data-total="+ a10 +">"+ n10 +"";
+  str += "<span class='percent' style='float: right;'>"+ a10 +"</span></div></div>";  
+  if(xClickMenu!="C") {
+    str += "<div class='bar' onclick='OpenProfile(\""+ id11 +"\")'><div class='bar-info rsoc13' data-total="+ a11 +">"+ n11 +"";
+    str += "<span class='percent' style='float: right;'>"+ a11 +"</span></div></div>";  
+  }
+  $('#Display').html(str);
+
+  function skillSet() {
+    $('.bar-info').each(function() {
+      total = $(this).data("total");
+      $(this).css("width", total + "%");
+    });
+    
+    $('.percent').each(function() {
+      var $this = $(this);
+      $({
+        Counter: 10
+      }).animate({
+        Counter: $this.text()
+      }, {
+        duration: 3000,
+        easing: 'swing',
+        step: function() {
+          $this.text(Math.ceil(this.Counter) + "%");
+        }
+      });
+    });
+  };
+  setTimeout(skillSet, 1000);
 }
 
 

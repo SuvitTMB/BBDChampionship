@@ -1,13 +1,37 @@
 var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
-var xLeague = "Champion League";
 var xClickMenu = "A";
-var xRatio = 18;
+var Zone1 = "";
+var Zone2 = "";
+var Zone3 = "";
+var Zone4 = "";
+var Zone5 = "";
+var Zone6 = "";
+var A1 = 0;
+var A2 = 0;
+var A3 = 0;
+var B1 = 0;
+var B2 = 0;
+var B3 = 0;
+var C1 = 0;
+var C2 = 0;
+var C3 = 0;
+var D1 = 0;
+var D2 = 0;
+var D3 = 0;
+var E1 = 0;
+var E2 = 0;
+var E3 = 0;
+var F1 = 0;
+var F2 = 0;
+var F3 = 0;
+var xMonth = "ตค. - ธค.";
+var xMonthDetail = "ประจำไตรมาส 3 (ตค. - ธค. 2565)";
+var xThisMonth = "ภาพรวมเดือนตุลาคม 2565";
 
-$(document).ready(function () {
+
+$(document).ready(function() {
   if(sessionStorage.getItem("EmpID_Kickoff")==null) { location.href = "index.html"; }
-  Connect_DB()
-  document.getElementById(1).classList.add('box-menu2');
-
+  Connect_DB();
 });
 
 
@@ -24,10 +48,11 @@ function Connect_DB() {
   };
   firebase.initializeApp(firebaseConfig);
   dbBBDKickoff = firebase.firestore().collection("Championship_LendZone");
+  dbBBDRH = firebase.firestore().collection("Championship_LendRH");
   dbLeagueMember = firebase.firestore().collection("BBD_LeagueMember");
+  //CheckScore();
   GetLinePicture();
-  loadData();
-  //loadUser();
+  Achievement();
 }
 
 
@@ -48,73 +73,83 @@ function GetLinePicture() {
 
 
 
-function loadData() {
-  var i = 0;
+function Achievement() {
   var str = "";
-  str += '<table class="table" style="width:95%; margin:10px auto;"><tbody>';
-  dbBBDKickoff
-  .where('Round1','==', xClickMenu)
-  .orderBy('TotalRank','asc')
-  //.orderBy('EmpZone','asc')
+  var sRH = "";
+  str += '<div class="btn-t33" style="margin-top:30px; background-color: #94a9b3;border: solid #94a9b3 1px;">ผลงานสะสม RH Championship<br>'+xMonthDetail+'</div>';
+  str += '<div style="margin:10px auto;text-align: center; width:90%;">';
+  str += '<div style="width:30%;float: left;text-align: left;"><img src="./img/click-1.png"></div><div style="width:40%;float: left;">&nbsp;</div>';
+  str += '<div style="width:30%;float: left;text-align: right;"><img src="./img/click-2.png"></div></div><div class="clr"></div>';
+
+  dbBBDRH.orderBy('TotalRank','asc')
   .get().then((snapshot)=> {
     snapshot.forEach(doc=> {
-      const results = LinePictureArr.filter(obj => {return obj.EmpID === doc.data().EmpID;});
-      str += '<tr onclick="OpenProfile(\''+ doc.id +'\')" class="LinkProfile">';
-      str += '<td class="td-center td-padding" style="width:18%;text-align:center;"><img src="'+results[0].EmpPicture+'" class="profile-team" onerror="javascript:imgError(this)" style="margin-top:14px;"></td>';
-      str += '<td class="td-padding" style="width:83%;padding-top:5px;"><font color="#0056ff"><b>สนข. '+doc.data().EmpZone+' ('+doc.data().EmpRH+')</b></font>';
-      str += '<font color="#002d63"><br><b>คุณ'+doc.data().EmpName+'</b></font><br><b>อันดับที่ : '+doc.data().TotalRank+' | ผลงาน : '+doc.data().Target_Total+'</b>';
-      if(parseInt(doc.data().Target_Total)> 100) {
-        str += '<div class="progress2" style="float: left;width:90%;margin-top:3px;"><div class="bar4" style="width:'+ doc.data().Target_Total +'"></div></div>';        
+      if(sRH=="") { sRH = doc.data().EmpRH; }
+      str += '<div class="bar_background"><div style="padding-top:8px;">';
+      str += '<div class="bar_body"><div class="btn-t66" onclick="ShowZone(\''+ doc.data().EmpRH +'\')">'+ doc.data().EmpRH +'</div></div>';
+      if(doc.data().MTDTarget_1<doc.data().MTDIssue_1) { 
+        str += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar4" style="width:'+ doc.data().Target_Total +'"></div></div>';
       } else {
-        str += '<div class="progress2" style="float: left;width:90%;margin-top:3px;"><div class="bar3" style="width:'+ doc.data().Target_Total +'"></div></div>';        
+        str += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar2" style="width:'+ doc.data().Target_Total +'"></div></div>';
       }
-      str += '</td>';
-      str += '<td class="td-center td-padding" onclick="OpenProfile(\''+ doc.id +'\')"><div class="btn-t1" style="width:40px;margin-top:20px;font-size:9px;">View</div></td>';
-      str += '</tr>';
-      i++;
-    }); 
-    str += '</tbody></table>';
-    $("#DisplayTeam").html(str);  
-    $("#DisplaySum").html("<div class='btn-t33' style='background-color: #94a9b3;border: solid #94a9b3 1px;margin-top:15px;'>ข้อมูลการแบ่งสายการแข่งขัน<br>สาย  "+ xClickMenu +" จำนวน "+ i +" สำนักงานเขตธุรกิจสาขา</div>");  
-  });
-}
-
-
-function SelectBox(x) {
-  var xx = "";
-  if(x=="A") {
-    xx = 1;
-  } else if(x=="B") { 
-    xx = 2;
-  } else if(x=="C") { 
-    xx = 3;
-  }
-  var i = 1;
-  for (i = 1; i < 4; i++) {
-    document.getElementById(i).classList.remove('box-menu2');
-  }   
-  if(x!="") {
-    xClickMenu = x;
-    //console.log(xx+"==="+x);
-    document.getElementById(xx).classList.add('box-menu2');
-    loadData()
-  }
+      str += '<div class="bar_body1" onclick="OpenProfile(\''+ doc.id +'\')" style="width:15%;margin-left:10px;">'+ doc.data().Target_Total +'</div>';
+      str += '</div><div class="clr"></div></div>';
+      if(doc.data().EmpRH!=sRH) {
+        var str1 = "";
+        dbBBDKickoff.where('EmpRH','==', doc.data().EmpRH)
+        .orderBy('EmpZone','asc')
+        .get().then((snapshot)=> {
+          snapshot.forEach(doc=> {
+            str1 += '<div class="bar_background"><div style="padding-top:8px;">';
+            str1 += '<div class="bar_body"><div class="btn-t66" onclick="OpenProfile1(\''+ doc.id +'\')">'+ doc.data().EmpZone +'</div></div>';
+            str1 += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar2" style="width:'+ doc.data().Target_Total +'"></div></div>';
+            str1 += '<div class="bar_body1">'+ doc.data().APEAchieve_1 +'</div>';
+            str1 += '</div><div class="clr"></div></div>';
+          });
+          str += ''+str1;
+          //alert(str1);
+          sRH = doc.data().EmpRH;
+        })
+      }
+    });
+    $("#DisplayReport").html(str);  
+    document.getElementById('DisplayWaitting').style.display='none';
+    document.getElementById('DisplayReport').style.display='block';
+  })
 }
 
 
 
-function OpenTeam(x) {
-  xClickMenu = x;
-  loadData()
-  //location.href = 'team.html?gid='+x;
+
+function ShowZone(RH) {
+  var str = "";
+  str += '<center><div class="btn-t4" style="margin-top:30px;margin-bottom: 14px;">RH - Lending Product<br>'+xThisMonth+'<br>ผลงานรวมของ ZONE สังกัด -> '+RH+'</div>';
+  dbBBDKickoff.where('EmpRH','==', RH)
+  .orderBy('NewRank','asc')
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      str += '<div class="bar_background" style="width:95%;"><div style="padding-top:8px;">';
+      str += '<div class="bar_body" style="width:30%;margin-right:6px;"><div class="btn-t666">'+ doc.data().EmpZone +'</div></div>';
+      if(doc.data().MTDTarget_1<doc.data().MTDIssue_1) {
+        str += '<div class="progress2" style="float: left;width:46%;margin-top:6px;"><div class="bar4" style="width:'+ doc.data().Target_Total +'"></div></div>';
+      } else {
+        str += '<div class="progress2" style="float: left;width:46%;margin-top:6px;"><div class="bar3" style="width:'+ doc.data().Target_Total +'"></div></div>';
+      }
+      str += '<div class="bar_body">'+ doc.data().Target_Total +'</div>';
+      str += '</div><div class="clr"></div></div>';
+    });
+    str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
+    str += '<div class="clr" style="height: 25px;"></div></center>';
+    $("#DisplayProfile").html(str);  
+    document.getElementById("id01").style.display = "block";
+  })
 }
 
 
 
 function OpenProfile(uid) {
   var str = "";
-  console.log(uid);
-  dbBBDKickoff.where(firebase.firestore.FieldPath.documentId(), "==", uid)
+  dbBBDRH.where(firebase.firestore.FieldPath.documentId(), "==", uid)
   .get().then((snapshot)=> {
   snapshot.forEach(doc=> {
       const results = LinePictureArr.filter(obj => {return obj.EmpID === doc.data().EmpID;});
@@ -186,5 +221,4 @@ function imgError(image) {
 
 function CloseAll() {
   document.getElementById('id01').style.display='none';
-  //document.getElementById('id02').style.display='none';
 }
