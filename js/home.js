@@ -1,1 +1,421 @@
-var _0x29b19f=_0x3027;(function(_0x432d99,_0x24d0cc){var _0x302451=_0x3027,_0xe6deb5=_0x432d99();while(!![]){try{var _0x47ba45=-parseInt(_0x302451(0x11b))/0x1+-parseInt(_0x302451(0xd6))/0x2+parseInt(_0x302451(0x156))/0x3*(parseInt(_0x302451(0xd9))/0x4)+parseInt(_0x302451(0xde))/0x5*(-parseInt(_0x302451(0x14f))/0x6)+-parseInt(_0x302451(0xe0))/0x7+-parseInt(_0x302451(0x126))/0x8*(parseInt(_0x302451(0xeb))/0x9)+parseInt(_0x302451(0x132))/0xa;if(_0x47ba45===_0x24d0cc)break;else _0xe6deb5['push'](_0xe6deb5['shift']());}catch(_0x4f7efa){_0xe6deb5['push'](_0xe6deb5['shift']());}}}(_0x2a57,0x2b510));var xMonth='ตค.\x20-\x20ธค.',xMonthDetail=_0x29b19f(0xfa),xThisMonth=_0x29b19f(0x112),A1,A2,B1,B2,C1,C2,D1,D2,E1,E2,F1,F2,AA1,AA2,AA3,BB1,BB2,BB3,CC1,CC2,CC3,DD1,DD2,DD3,EE1,EE2,EE3,FF1,FF2,FF3,GG1,GG2,GG3,Zone1,Zone2,Zone3,Zone4,Zone5,Zone6;$(document)[_0x29b19f(0x163)](function(){var _0x3c6e42=_0x29b19f;sessionStorage[_0x3c6e42(0x120)](_0x3c6e42(0xe3))==null&&(location['href']=_0x3c6e42(0xfc)),Connect_DB();}),(function(){var _0x3b2a74=_0x29b19f;const _0x2ecf42=0x3e8,_0x1c70e6=_0x2ecf42*0x3c,_0x3ef028=_0x1c70e6*0x3c,_0x1fca50=_0x3ef028*0x18;let _0x4537ca=new Date(),_0x19a7a5=String(_0x4537ca[_0x3b2a74(0x129)]())[_0x3b2a74(0xd3)](0x2,'0'),_0x13f271=String(_0x4537ca[_0x3b2a74(0xe2)]()+0x1)[_0x3b2a74(0xd3)](0x2,'0'),_0x2352c3=_0x4537ca[_0x3b2a74(0x13b)](),_0x124dce=_0x2352c3+0x1,_0x3a6b=_0x3b2a74(0x139),_0x3b9f5e=_0x3a6b+_0x2352c3;_0x4537ca=_0x13f271+'/'+_0x19a7a5+'/'+_0x2352c3;_0x4537ca>_0x3b9f5e&&(_0x3b9f5e=_0x3a6b+_0x124dce);const _0x3f5b49=new Date(_0x3b9f5e)[_0x3b2a74(0xcc)](),_0x2eed5f=setInterval(function(){var _0x41da0f=_0x3b2a74;const _0xe788a0=new Date()[_0x41da0f(0xcc)](),_0x31c3c9=_0x3f5b49-_0xe788a0;document[_0x41da0f(0x13a)]('days')[_0x41da0f(0x148)]=Math[_0x41da0f(0xec)](_0x31c3c9/_0x1fca50),document['getElementById'](_0x41da0f(0xcf))[_0x41da0f(0x148)]=Math['floor'](_0x31c3c9%_0x1fca50/_0x3ef028),document[_0x41da0f(0x13a)](_0x41da0f(0xc9))[_0x41da0f(0x148)]=Math[_0x41da0f(0xec)](_0x31c3c9%_0x3ef028/_0x1c70e6),document[_0x41da0f(0x13a)](_0x41da0f(0x158))['innerText']=Math[_0x41da0f(0xec)](_0x31c3c9%_0x1c70e6/_0x2ecf42),_0x31c3c9<0x0&&(document['getElementById']('headline')['innerText']='It\x27s\x20my\x20birthday!',document[_0x41da0f(0x13a)](_0x41da0f(0x11d))[_0x41da0f(0x167)][_0x41da0f(0x118)]=_0x41da0f(0x14e),document['getElementById'](_0x41da0f(0x13d))[_0x41da0f(0x167)][_0x41da0f(0x118)]='block',clearInterval(_0x2eed5f));},0x0);}());function Connect_DB(){var _0x5221c9=_0x29b19f,_0x3e49e5={'apiKey':_0x5221c9(0x160),'authDomain':_0x5221c9(0xf1),'projectId':_0x5221c9(0x10a),'storageBucket':'retailproject-6f4fc.appspot.com','messagingSenderId':_0x5221c9(0x109),'appId':_0x5221c9(0x12c),'measurementId':_0x5221c9(0x119)};firebase['initializeApp'](_0x3e49e5),dbBBDKickoff=firebase[_0x5221c9(0xf9)]()[_0x5221c9(0xda)](_0x5221c9(0x145)),dbBBDRH=firebase['firestore']()['collection'](_0x5221c9(0xed)),dbLendingZone=firebase[_0x5221c9(0xf9)]()[_0x5221c9(0xda)]('Championship_LendZone'),dbLendingRH=firebase[_0x5221c9(0xf9)]()['collection'](_0x5221c9(0x168)),dbLeagueMember=firebase[_0x5221c9(0xf9)]()[_0x5221c9(0xda)]('BBD_LeagueMember'),GetLinePicture(),CheckScore(),CheckScoreLending();}function GetLinePicture(){var _0x3e6c89=_0x29b19f,_0xe097e4=0x0,_0x3cce82='';LineEmpIDArr=[],LinePictureArr=[],dbLeagueMember['orderBy']('EmpID',_0x3e6c89(0x10c))[_0x3e6c89(0x152)]()[_0x3e6c89(0x121)](_0x27e5be=>{var _0x230efa=_0x3e6c89;_0x27e5be[_0x230efa(0x113)](_0x3c4d05=>{var _0x3e18bf=_0x230efa;LineEmpIDArr[_0x3e18bf(0x165)](_0x3c4d05[_0x3e18bf(0xee)]()[_0x3e18bf(0x138)]),LinePictureArr['push']({'EmpID':_0x3c4d05['data']()[_0x3e18bf(0x138)],'EmpName':_0x3c4d05[_0x3e18bf(0xee)]()[_0x3e18bf(0x117)],'EmpPicture':_0x3c4d05[_0x3e18bf(0xee)]()[_0x3e18bf(0x137)],'EmpRef':_0x3c4d05['id']});});});}function OpenLink(_0x4dc9a7){var _0x33fb7a=_0x29b19f,_0x14768d='';if(_0x4dc9a7==0x1)location[_0x33fb7a(0x11f)]=_0x33fb7a(0x149);else{if(_0x4dc9a7==0x2)location[_0x33fb7a(0x11f)]=_0x33fb7a(0xdc);else{if(_0x4dc9a7==0x3)_0x14768d+=_0x33fb7a(0x11a),_0x14768d+=_0x33fb7a(0x11c),_0x14768d+=_0x33fb7a(0x134),_0x14768d+=_0x33fb7a(0xdf),_0x14768d+=_0x33fb7a(0x13e),_0x14768d+=_0x33fb7a(0xfd),$(_0x33fb7a(0x103))[_0x33fb7a(0x155)](_0x14768d),document[_0x33fb7a(0x13a)]('id01')[_0x33fb7a(0x167)][_0x33fb7a(0x118)]=_0x33fb7a(0x154);else{if(_0x4dc9a7==0x4)location[_0x33fb7a(0x11f)]=_0x33fb7a(0x110);else{if(_0x4dc9a7==0x5)location[_0x33fb7a(0x11f)]='rhpointmonth.html';else _0x4dc9a7==0x6&&(location['href']=_0x33fb7a(0x12a));}}}}}function Achievement(){var _0x3e1d70=_0x29b19f,_0xaa089f='',_0xa63050='';_0xaa089f+=_0x3e1d70(0x14a)+xMonthDetail+'</div>',dbBBDRH[_0x3e1d70(0x15b)](_0x3e1d70(0x150),'asc')['get']()[_0x3e1d70(0x121)](_0x2a41e8=>{var _0x55cea5=_0x3e1d70;_0x2a41e8['forEach'](_0x5580f9=>{var _0x35cb5a=_0x3027;_0xa63050==''&&(_0xa63050=_0x5580f9[_0x35cb5a(0xee)]()[_0x35cb5a(0x136)]);_0xaa089f+=_0x35cb5a(0xc7),_0xaa089f+=_0x35cb5a(0xca)+_0x5580f9[_0x35cb5a(0xee)]()[_0x35cb5a(0x136)]+_0x35cb5a(0x14b)+_0x5580f9[_0x35cb5a(0xee)]()[_0x35cb5a(0x136)]+'</div></div>';_0x5580f9['data']()[_0x35cb5a(0x146)]<_0x5580f9['data']()[_0x35cb5a(0x142)]?_0xaa089f+='<div\x20class=\x22progress2\x22\x20style=\x22float:\x20left;width:60%;margin-top:6px;\x22><div\x20class=\x22bar4\x22\x20style=\x22width:'+_0x5580f9[_0x35cb5a(0xee)]()[_0x35cb5a(0x123)]+_0x35cb5a(0x128):_0xaa089f+=_0x35cb5a(0xcb)+_0x5580f9[_0x35cb5a(0xee)]()['Total_100']+_0x35cb5a(0x128);_0xaa089f+='<div\x20class=\x22bar_body1\x22\x20onclick=\x22OpenProfile(\x27'+_0x5580f9['id']+_0x35cb5a(0xea)+_0x5580f9[_0x35cb5a(0xee)]()[_0x35cb5a(0x123)]+_0x35cb5a(0x15d),_0xaa089f+=_0x35cb5a(0x127);if(_0x5580f9[_0x35cb5a(0xee)]()[_0x35cb5a(0x136)]!=_0xa63050){var _0x1ce883='';dbBBDKickoff['where'](_0x35cb5a(0x136),'==',_0x5580f9[_0x35cb5a(0xee)]()['EmpRH'])[_0x35cb5a(0x15b)](_0x35cb5a(0xe7),_0x35cb5a(0x10c))['get']()['then'](_0xce3ff0=>{var _0x1f8608=_0x35cb5a;_0xce3ff0[_0x1f8608(0x113)](_0x4c4b80=>{var _0x3d39c5=_0x1f8608;_0x1ce883+=_0x3d39c5(0xc7),_0x1ce883+=_0x3d39c5(0x102)+_0x4c4b80['id']+'\x27)\x22>'+_0x4c4b80[_0x3d39c5(0xee)]()[_0x3d39c5(0xe7)]+'</div></div>',_0x1ce883+=_0x3d39c5(0xcb)+_0x4c4b80[_0x3d39c5(0xee)]()[_0x3d39c5(0x123)]+'\x22></div></div>',_0x1ce883+=_0x3d39c5(0x14d)+_0x4c4b80[_0x3d39c5(0xee)]()[_0x3d39c5(0x15e)]+_0x3d39c5(0x15d),_0x1ce883+=_0x3d39c5(0x127);}),_0xaa089f+=''+_0x1ce883,_0xa63050=_0x5580f9['data']()[_0x1f8608(0x136)];});}}),$(_0x55cea5(0xf3))[_0x55cea5(0x155)](_0xaa089f),document['getElementById'](_0x55cea5(0xf7))[_0x55cea5(0x167)]['display']=_0x55cea5(0x14e),document[_0x55cea5(0x13a)](_0x55cea5(0xfb))[_0x55cea5(0x167)][_0x55cea5(0x118)]=_0x55cea5(0x154);});}function ShowZone(_0x1454d9){var _0x20a7b2=_0x29b19f,_0x200110='';_0x200110+=_0x20a7b2(0x16a)+xThisMonth+_0x20a7b2(0xef)+_0x1454d9+'</div>',dbBBDKickoff['where'](_0x20a7b2(0x136),'==',_0x1454d9)[_0x20a7b2(0x15b)]('NewRank',_0x20a7b2(0x10c))[_0x20a7b2(0x152)]()[_0x20a7b2(0x121)](_0x124f56=>{var _0x251489=_0x20a7b2;_0x124f56[_0x251489(0x113)](_0x441078=>{var _0x37c9e0=_0x251489;_0x200110+='<div\x20class=\x22bar_background\x22><div\x20style=\x22padding-top:8px;\x22>',_0x200110+=_0x37c9e0(0x13f)+_0x441078[_0x37c9e0(0xee)]()[_0x37c9e0(0xe7)]+'</div></div>',_0x441078['data']()[_0x37c9e0(0x146)]<_0x441078[_0x37c9e0(0xee)]()['MTDIssue_1']?_0x200110+=_0x37c9e0(0x12f)+_0x441078[_0x37c9e0(0xee)]()[_0x37c9e0(0x123)]+'\x22></div></div>':_0x200110+=_0x37c9e0(0x12b)+_0x441078[_0x37c9e0(0xee)]()[_0x37c9e0(0x123)]+_0x37c9e0(0x128),_0x200110+='<div\x20class=\x22bar_body\x22>'+_0x441078[_0x37c9e0(0xee)]()['Total_100']+'</div>',_0x200110+=_0x37c9e0(0x127);}),_0x200110+=_0x251489(0xd2),_0x200110+=_0x251489(0xd5),$(_0x251489(0x143))[_0x251489(0x155)](_0x200110),document['getElementById'](_0x251489(0x144))['style']['display']=_0x251489(0x154);});}function OpenProfile(_0x288794){var _0xb3e9ec=_0x29b19f,_0x255981='';dbBBDRH['where'](firebase[_0xb3e9ec(0xf9)][_0xb3e9ec(0x159)][_0xb3e9ec(0x10d)](),'==',_0x288794)[_0xb3e9ec(0x152)]()[_0xb3e9ec(0x121)](_0x1b6868=>{var _0x32aaa0=_0xb3e9ec;_0x1b6868[_0x32aaa0(0x113)](_0x1c3305=>{var _0x403960=_0x32aaa0;const _0x44db60=LinePictureArr[_0x403960(0xd7)](_0x2b188b=>{var _0x5abaad=_0x403960;return _0x2b188b[_0x5abaad(0x138)]===_0x1c3305['data']()[_0x5abaad(0x138)];});_0x255981+='<center>',_0x255981+=_0x403960(0x15a)+_0x44db60[0x0]['EmpPicture']+_0x403960(0x169),_0x255981+=_0x403960(0xe8)+_0x1c3305[_0x403960(0xee)]()[_0x403960(0x107)]+_0x403960(0x15d),_0x255981+=_0x403960(0x106)+_0x1c3305['data']()[_0x403960(0xc8)]+_0x403960(0x115)+_0x1c3305[_0x403960(0xee)]()[_0x403960(0x136)]+')</div>',_0x255981+='<div\x20class=\x22btn-t4\x22>ผลงาน\x20->\x20'+_0x1c3305[_0x403960(0xee)]()['Total_100']+_0x403960(0x10f)+_0x1c3305['data']()[_0x403960(0x150)]+_0x403960(0x15d),_0x255981+=_0x403960(0x153),_0x255981+=_0x403960(0xce),_0x255981+=_0x403960(0x130),_0x255981+=_0x403960(0xdb),_0x255981+=_0x403960(0xf2),_0x255981+=_0x403960(0x140)+_0x1c3305['data']()[_0x403960(0x146)]+_0x403960(0x147),_0x255981+=_0x403960(0xfe)+_0x1c3305['data']()['MTDIssue_1']+_0x403960(0x147),_0x255981+=_0x403960(0x104)+_0x1c3305['data']()[_0x403960(0x15e)]+_0x403960(0x147),_0x255981+='</tbody>',_0x255981+='</table>',_0x255981+=_0x403960(0x162),_0x255981+=_0x403960(0x130),_0x255981+='<thead\x20class=\x22thead-dark\x22><tr><th\x20scope=\x22col\x22\x20class=\x22col_td\x22>รายการ</th><th\x20scope=\x22col\x22\x20class=\x22col_td\x22>รายละเอียด</th></thead>',_0x255981+=_0x403960(0xf2),_0x255981+=_0x403960(0x166)+_0x1c3305[_0x403960(0xee)]()[_0x403960(0xcd)]+_0x403960(0x147),_0x255981+=_0x403960(0xf6)+_0x1c3305['data']()[_0x403960(0xd4)]+_0x403960(0x147),_0x255981+=_0x403960(0x108)+_0x1c3305[_0x403960(0xee)]()[_0x403960(0x10b)]+_0x403960(0x147),_0x255981+=_0x403960(0xe4),_0x255981+='</table>',_0x255981+=_0x403960(0x10e),_0x255981+=_0x403960(0x130),_0x255981+=_0x403960(0xdb),_0x255981+=_0x403960(0xf2),_0x255981+=_0x403960(0xe1)+_0x1c3305[_0x403960(0xee)]()[_0x403960(0xd0)]+_0x403960(0x147),_0x255981+=_0x403960(0xf0)+_0x1c3305[_0x403960(0xee)]()[_0x403960(0x161)]+_0x403960(0x147),_0x255981+='<tr><th\x20scope=\x22row\x22>%\x20Total</th><td\x20style=\x22text-align:center;\x22>'+_0x1c3305[_0x403960(0xee)]()[_0x403960(0x123)]+_0x403960(0x147),_0x255981+=_0x403960(0xff)+_0x1c3305[_0x403960(0xee)]()[_0x403960(0x150)]+'</td></tr>',_0x255981+=_0x403960(0xe4),_0x255981+=_0x403960(0x157),_0x255981+=_0x403960(0x15d),_0x255981+=_0x403960(0xd2),_0x255981+=_0x403960(0x151),_0x255981+=_0x403960(0x15c);}),$('#DisplayProfile')[_0x32aaa0(0x155)](_0x255981),document[_0x32aaa0(0x13a)](_0x32aaa0(0x144))[_0x32aaa0(0x167)][_0x32aaa0(0x118)]=_0x32aaa0(0x154);});}function imgError(_0x1fcdc7){var _0xb72dfa=_0x29b19f;return _0x1fcdc7['onerror']='',_0x1fcdc7[_0xb72dfa(0xf4)]='./img/box.jpg',!![];}function CloseAll(){document['getElementById']('id01')['style']['display']='none';}function CheckScore(){var _0x198d8c=_0x29b19f,_0xe8f775=0x0;dbBBDRH[_0x198d8c(0x15b)](_0x198d8c(0x136),_0x198d8c(0x10c))['get']()[_0x198d8c(0x121)](_0x4709e3=>{var _0x2767c9=_0x198d8c;_0x4709e3[_0x2767c9(0x113)](_0x12d571=>{var _0x1035df=_0x2767c9;console[_0x1035df(0x13c)](_0x12d571[_0x1035df(0xee)]()[_0x1035df(0x136)]+'\x20===\x20'+_0x12d571[_0x1035df(0xee)]()[_0x1035df(0xd0)]+_0x1035df(0x12e)+_0x12d571['data']()[_0x1035df(0x161)]);if(_0xe8f775==0x0)Zone1=_0x12d571[_0x1035df(0xee)]()[_0x1035df(0x136)],A1=parseFloat(_0x12d571['data']()['APE_50']),A2=parseFloat(_0x12d571[_0x1035df(0xee)]()[_0x1035df(0x161)]);else{if(_0xe8f775==0x1)Zone2=_0x12d571[_0x1035df(0xee)]()[_0x1035df(0x136)],B1=parseFloat(_0x12d571[_0x1035df(0xee)]()[_0x1035df(0xd0)]),B2=parseFloat(_0x12d571[_0x1035df(0xee)]()['Product_50']);else{if(_0xe8f775==0x2)Zone3=_0x12d571['data']()[_0x1035df(0x136)],C1=parseFloat(_0x12d571[_0x1035df(0xee)]()[_0x1035df(0xd0)]),C2=parseFloat(_0x12d571['data']()[_0x1035df(0x161)]);else{if(_0xe8f775==0x3)Zone4=_0x12d571['data']()[_0x1035df(0x136)],D1=parseFloat(_0x12d571[_0x1035df(0xee)]()['APE_50']),D2=parseFloat(_0x12d571['data']()[_0x1035df(0x161)]);else{if(_0xe8f775==0x4)Zone5=_0x12d571[_0x1035df(0xee)]()[_0x1035df(0x136)],E1=parseFloat(_0x12d571['data']()[_0x1035df(0xd0)]),E2=parseFloat(_0x12d571[_0x1035df(0xee)]()[_0x1035df(0x161)]);else _0xe8f775==0x5&&(Zone6=_0x12d571[_0x1035df(0xee)]()[_0x1035df(0x136)],F1=parseFloat(_0x12d571[_0x1035df(0xee)]()[_0x1035df(0xd0)]),F2=parseFloat(_0x12d571[_0x1035df(0xee)]()[_0x1035df(0x161)]));}}}}_0xe8f775++;}),drawStacked();});}google[_0x29b19f(0x131)]['load'](_0x29b19f(0xe5),{'packages':[_0x29b19f(0xe6),'bar']}),google[_0x29b19f(0x131)]['setOnLoadCallback'](drawStacked);function drawStacked(){var _0x2a5c27=_0x29b19f,_0xc8c193=google[_0x2a5c27(0xd8)][_0x2a5c27(0x100)]([['RH',_0x2a5c27(0x12d),{'role':_0x2a5c27(0x101)},_0x2a5c27(0x105),{'role':_0x2a5c27(0x101)}],[_0x2a5c27(0xd1),A1,A1+'%',A2,A2+'%'],[_0x2a5c27(0xdd),B1,B1+'%',B2,B2+'%'],[_0x2a5c27(0x11e),C1,C1+'%',C2,C2+'%'],[_0x2a5c27(0x141),D1,D1+'%',D2,D2+'%'],[_0x2a5c27(0xe9),E1,E1+'%',E2,E2+'%'],['RH6',F1,F1+'%',F2,F2+'%']]),_0x2768c3={'annotations':{'textStyle':{'fontName':_0x2a5c27(0x111)}},'hAxis':{'textStyle':{'fontName':_0x2a5c27(0x111)},'titleTextStyle':{'fontName':_0x2a5c27(0x111)}},'vAxis':{'textStyle':{'fontName':_0x2a5c27(0x111)},'titleTextStyle':{'fontName':_0x2a5c27(0x111)}},'titleTextStyle':{'fontName':_0x2a5c27(0x111)},'tooltip':{'textStyle':{'fontName':_0x2a5c27(0x111)}},'fontName':_0x2a5c27(0x111),'fontSize':0xb,'width':0x168,'height':0x12c,'chartArea':{'width':_0x2a5c27(0x116)},'legend':{'position':_0x2a5c27(0xf8),'maxLines':0x3},'bar':{'groupWidth':'90%'},'backgroundColor':_0x2a5c27(0x114),'isStacked':!![]},_0x6b4d54=new google[(_0x2a5c27(0xd8))][(_0x2a5c27(0x135))](document[_0x2a5c27(0x13a)]('chart_div'));_0x6b4d54[_0x2a5c27(0x164)](_0xc8c193,_0x2768c3);}function _0x2a57(){var _0x4b8c4c=['<tr><th\x20scope=\x22row\x22>Rank</th><td\x20style=\x22text-align:center;\x22>','arrayToDataTable','annotation','<div\x20class=\x22bar_body\x22><div\x20class=\x22btn-t66\x22\x20onclick=\x22OpenProfile1(\x27','#DisplayVDO','<tr><th\x20scope=\x22row\x22>%\x20APE\x20Achievement</th><td\x20style=\x22text-align:center;\x22>','%\x20Focus\x20Product\x20Achievement','<div\x20class=\x22text-2\x22\x20style=\x22margin-top:0px;\x22><b>','EmpName','<tr><th\x20scope=\x22row\x22>%\x20Target\x20Focus\x20Product</th><td\x20style=\x22text-align:center;\x22>','653667385625','retailproject-6f4fc','ProductAchieve_2','asc','documentId','<div\x20class=\x22btn-t77\x22>3.\x20Total\x20%\x20Weighted</div>','\x20|\x20อันดับ\x20->\x20','allteam.html','ekachon-regular','ภาพรวมเดือนตุลาคม\x202565','forEach','#dbe5f3','</b>\x20(','80%','LineName','display','G-9SKTRHHSW9','<center>','207641kOkJpE','<div\x20class=\x22btn-t3\x22\x20style=\x22margin-top:25px;\x22>VDO\x20แนะนำการแข่งขัน</div><div\x20class=\x22clr\x22></div>','countdown','RH3','href','getItem','then','%\x20CC\x20FC','Total_100','Target_1','Target_3','275800yAsBaD','</div><div\x20class=\x22clr\x22></div></div>','\x22></div></div>','getDate','lendingproduct.html','<div\x20class=\x22progress2\x22\x20style=\x22float:\x20left;width:46%;margin-top:6px;\x22><div\x20class=\x22bar3\x22\x20style=\x22width:','1:653667385625:web:a5aed08500de80839f0588','%\x20APE\x20Achievement','\x20===\x20','<div\x20class=\x22progress2\x22\x20style=\x22float:\x20left;width:46%;margin-top:6px;\x22><div\x20class=\x22bar4\x22\x20style=\x22width:','<table\x20class=\x22table\x20table-bordered\x20table-hover\x22\x20style=\x22width:90%;\x20max-width:\x20400px;\x20margin:auto;\x22>','charts','4914860ExVRgT','Target_2','<video\x20id=\x22video\x22\x20style=\x22max-width:450px;width:99%;margin:25px\x20auto\x205px\x20auto;\x22\x20controls=\x22controls\x22\x20autoplay>','ColumnChart','EmpRH','LinePicture','EmpID','11/01/','getElementById','getFullYear','log','content','<div\x20class=\x22clr\x22></div><div\x20class=\x22btn-t2\x22\x20onclick=\x22CloseVDO()\x22\x20style=\x22margin-top:15px;\x22>ปิดวิดีโอ</div>','<div\x20class=\x22bar_body\x22\x20style=\x22width:30%;margin-right:6px;\x22><div\x20class=\x22btn-t666\x22>','<tr><th\x20scope=\x22row\x22>MTD\x20Target</th><td\x20style=\x22text-align:center;\x22>','RH4','MTDIssue_1','#DisplayProfile','id01','Championship_Zone','MTDTarget_1','</td></tr>','innerText','intro.html','<div\x20class=\x22btn-t33\x22\x20style=\x22margin-top:30px;\x20background-color:\x20#94a9b3;border:\x20solid\x20#94a9b3\x201px;\x22>BBD\x20Championship\x20-\x20BA\x20Life<br>ผลงานสะสม\x20RH\x20Championship<br>','\x27)\x22>','chart_div1','<div\x20class=\x22bar_body1\x22>','none','318DXgVBu','TotalRank','<div\x20class=\x22clr\x22\x20style=\x22height:\x2025px;\x22></div>','get','<div>','block','html','462795uDXIVe','</table>','seconds','FieldPath','<div><img\x20src=\x22','orderBy','</center>','</div>','APEAchieve_1','90%','AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE','Product_50','<div\x20class=\x22btn-t77\x22>2.\x20หมวด\x20%\x20Focus\x20Product\x20Achievement</div>','ready','draw','push','<tr><th\x20scope=\x22row\x22>Target</th><td\x20style=\x22text-align:center;\x22>','style','Championship_LendRH','\x22\x20class=\x22add-profile\x22\x20style=\x22margin:30px\x20auto\x200px\x20auto;\x22\x20onerror=\x22javascript:imgError(this)\x22></div>','<center><div\x20class=\x22btn-t4\x22\x20style=\x22margin-top:30px;margin-bottom:\x2014px;\x22>','<div\x20class=\x22bar_background\x22><div\x20style=\x22padding-top:8px;\x22>','EmpPosition','minutes','<div\x20class=\x22bar_body\x22><div\x20class=\x22btn-t66\x22\x20onclick=\x22ShowZone(\x27','<div\x20class=\x22progress2\x22\x20style=\x22float:\x20left;width:60%;margin-top:6px;\x22><div\x20class=\x22bar2\x22\x20style=\x22width:','getTime','ProductTarget_2','<div\x20class=\x22btn-t77\x22>1.\x20หมวด\x20%\x20APE\x20Achievement</div>','hours','APE_50','RH1','<div\x20class=\x22btn-t2\x22\x20onclick=\x22CloseAll()\x22\x20style=\x22margin-top:15px;\x22>ปิดหน้าต่างนี้</div>','padStart','ProductFocus_2','<div\x20class=\x22clr\x22\x20style=\x22height:\x2025px;\x22></div></center>','20190JxClwM','filter','visualization','4fnyOFC','collection','<thead\x20class=\x22thead-dark\x22><tr><th\x20scope=\x22col\x22\x20class=\x22col_td\x22>รายการ</th><th\x20scope=\x22col\x22\x20class=\x22col_td\x22>รายละเอียด</th></thead>','home_about.html','RH2','2260EhbXul','<source\x20src=\x22https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FBBDLeague.mp4?alt=media&token=62eb01b8-8c1f-4dca-955d-221dc4bba317\x22\x20type=\x22video/mp4\x22></video>','1345120YujHBN','<tr><th\x20scope=\x22row\x22>50%\x20APE\x20Achievement</th><td\x20style=\x22text-align:center;\x22>','getMonth','EmpID_Kickoff','</tbody>','current','corechart','EmpZone','<div\x20class=\x22text-1\x22>','RH5','\x27)\x22\x20style=\x22width:15%;margin-left:10px;\x22>','9zpZITQ','floor','Championship_RH','data','<br>ผลงานรวมของ\x20ZONE\x20สังกัด\x20->\x20','<tr><th\x20scope=\x22row\x22>50%\x20Focused\x20Product</th><td\x20style=\x22text-align:center;\x22>','retailproject-6f4fc.firebaseapp.com','<tbody>','#DisplayReport','src','%\x20CYH','<tr><th\x20scope=\x22row\x22>Product\x20Focus</th><td\x20style=\x22text-align:center;\x22>','DisplayWaitting','top','firestore','ประจำไตรมาส\x203\x20(ตค.\x20-\x20ธค.\x202565)','DisplayReport','index.html','</center><div\x20class=\x22clr\x22\x20style=\x22height:\x2025px;\x22></div>','<tr><th\x20scope=\x22row\x22>MTD\x20Issue</th><td\x20style=\x22text-align:center;\x22>'];_0x2a57=function(){return _0x4b8c4c;};return _0x2a57();}function _0x3027(_0x49490b,_0x1d8de5){var _0x2a57f2=_0x2a57();return _0x3027=function(_0x3027bd,_0x2f2a06){_0x3027bd=_0x3027bd-0xc7;var _0x25cb3d=_0x2a57f2[_0x3027bd];return _0x25cb3d;},_0x3027(_0x49490b,_0x1d8de5);}function CheckScoreLending(){var _0x57c079=_0x29b19f,_0x471aa3=0x0;dbLendingRH[_0x57c079(0x15b)](_0x57c079(0x136),_0x57c079(0x10c))[_0x57c079(0x152)]()[_0x57c079(0x121)](_0x3e0510=>{var _0x1e63bf=_0x57c079;_0x3e0510[_0x1e63bf(0x113)](_0x13155c=>{var _0x40be74=_0x1e63bf;console[_0x40be74(0x13c)](_0x13155c[_0x40be74(0xee)]()['EmpRH']+_0x40be74(0x12e)+_0x13155c['data']()['Target_1']+'\x20===\x20'+_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x133)]+_0x40be74(0x12e)+_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x125)]);if(_0x471aa3==0x0)Zone1=_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x136)],AA1=parseFloat(_0x13155c['data']()['Target_1']),AA2=parseFloat(_0x13155c[_0x40be74(0xee)]()['Target_2']),AA3=parseFloat(_0x13155c[_0x40be74(0xee)]()['Target_3']);else{if(_0x471aa3==0x1)Zone2=_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x136)],BB1=parseFloat(_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x124)]),BB2=parseFloat(_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x133)]),BB3=parseFloat(_0x13155c[_0x40be74(0xee)]()['Target_3']);else{if(_0x471aa3==0x2)Zone3=_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x136)],CC1=parseFloat(_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x124)]),CC2=parseFloat(_0x13155c[_0x40be74(0xee)]()['Target_2']),CC3=parseFloat(_0x13155c[_0x40be74(0xee)]()['Target_3']);else{if(_0x471aa3==0x3)Zone4=_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x136)],DD1=parseFloat(_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x124)]),DD2=parseFloat(_0x13155c[_0x40be74(0xee)]()['Target_2']),DD3=parseFloat(_0x13155c['data']()[_0x40be74(0x125)]);else{if(_0x471aa3==0x4)Zone5=_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x136)],EE1=parseFloat(_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x124)]),EE2=parseFloat(_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x133)]),EE3=parseFloat(_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x125)]);else _0x471aa3==0x5&&(Zone6=_0x13155c['data']()['EmpRH'],FF1=parseFloat(_0x13155c[_0x40be74(0xee)]()['Target_1']),FF2=parseFloat(_0x13155c[_0x40be74(0xee)]()[_0x40be74(0x133)]),FF3=parseFloat(_0x13155c[_0x40be74(0xee)]()['Target_3']));}}}}_0x471aa3++;}),drawStackedLending();});}google['charts']['setOnLoadCallback'](drawStackedLending);function drawStackedLending(){var _0x18834b=_0x29b19f,_0x1a6b08=google[_0x18834b(0xd8)][_0x18834b(0x100)]([['Zone',_0x18834b(0xf5),{'role':_0x18834b(0x101)},'%\x20C2G\x20BT\x20CCC',{'role':_0x18834b(0x101)},_0x18834b(0x122),{'role':'annotation'}],[Zone1,AA1,AA1+'%',AA2,AA2+'%',AA3,AA3+'%'],[Zone2,BB1,BB1+'%',BB2,BB2+'%',BB3,BB3+'%'],[Zone3,CC1,CC1+'%',CC2,CC2+'%',CC3,CC3+'%'],[Zone4,DD1,DD1+'%',DD2,DD2+'%',DD3,DD3+'%'],[Zone5,EE1,EE1+'%',EE2,EE2+'%',EE3,EE3+'%'],[Zone6,FF1,FF1+'%',FF2,FF2+'%',FF3,FF3+'%']]),_0x1a4c69={'annotations':{'textStyle':{'fontName':'ekachon-regular'}},'hAxis':{'textStyle':{'fontName':_0x18834b(0x111)},'titleTextStyle':{'fontName':_0x18834b(0x111)}},'vAxis':{'textStyle':{'fontName':_0x18834b(0x111)},'titleTextStyle':{'fontName':_0x18834b(0x111)}},'titleTextStyle':{'fontName':'ekachon-regular'},'tooltip':{'textStyle':{'fontName':_0x18834b(0x111)}},'fontName':_0x18834b(0x111),'fontSize':0xb,'width':0x168,'height':0x12c,'chartArea':{'width':_0x18834b(0x116)},'legend':{'position':_0x18834b(0xf8),'maxLines':0x3},'bar':{'groupWidth':_0x18834b(0x15f)},'backgroundColor':_0x18834b(0x114),'isStacked':!![]},_0x5b409e=new google[(_0x18834b(0xd8))][(_0x18834b(0x135))](document[_0x18834b(0x13a)](_0x18834b(0x14c)));_0x5b409e[_0x18834b(0x164)](_0x1a6b08,_0x1a4c69);}
+//var DoneSurvey = 0;
+//var ShowScore = 0;
+var xMonth = "ตค. - ธค.";
+var xMonthDetail = "ประจำไตรมาส 3 (ตค. - ธค. 2565)";
+var xThisMonth = "ภาพรวมเดือนตุลาคม 2565";
+var A1,A2,B1,B2,C1,C2,D1,D2,E1,E2,F1,F2;
+var AA1,AA2,AA3,BB1,BB2,BB3,CC1,CC2,CC3,DD1,DD2,DD3,EE1,EE2,EE3,FF1,FF2,FF3,GG1,GG2,GG3;
+var Zone1,Zone2,Zone3,Zone4,Zone5,Zone6;
+
+
+$(document).ready(function () {
+  if(sessionStorage.getItem("EmpID_Kickoff")==null) { location.href = "index.html"; }
+  Connect_DB();
+});
+
+
+
+(function () {
+  const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+
+  //I'm adding this section so I don't have to keep updating this pen every year :-)
+  //remove this if you don't need it
+  let today = new Date(),
+      dd = String(today.getDate()).padStart(2, "0"),
+      mm = String(today.getMonth() + 1).padStart(2, "0"),
+      yyyy = today.getFullYear(),
+      nextYear = yyyy + 1,
+      dayMonth = "12/01/",
+      birthday = dayMonth + yyyy;
+  
+  today = mm + "/" + dd + "/" + yyyy;
+  if (today > birthday) {
+    birthday = dayMonth + nextYear;
+  }
+  
+  const countDown = new Date(birthday).getTime(),
+      x = setInterval(function() {    
+
+        const now = new Date().getTime(),
+              distance = countDown - now;
+
+        document.getElementById("days").innerText = Math.floor(distance / (day)),
+          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+        //do something later when date is reached
+        if (distance < 0) {
+          document.getElementById("headline").innerText = "It's my birthday!";
+          document.getElementById("countdown").style.display = "none";
+          document.getElementById("content").style.display = "block";
+          clearInterval(x);
+        }
+        //seconds
+      }, 0)
+  }());
+
+function Connect_DB() {
+  var firebaseConfig = {
+    apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
+    authDomain: "retailproject-6f4fc.firebaseapp.com",
+    projectId: "retailproject-6f4fc",
+    storageBucket: "retailproject-6f4fc.appspot.com",
+    messagingSenderId: "653667385625",
+    appId: "1:653667385625:web:a5aed08500de80839f0588",
+    measurementId: "G-9SKTRHHSW9"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  dbBBDKickoff = firebase.firestore().collection("Championship_Zone");
+  dbBBDRH = firebase.firestore().collection("Championship_RH");
+  dbLendingZone = firebase.firestore().collection("Championship_LendZone");
+  dbLendingRH = firebase.firestore().collection("Championship_LendRH");
+  dbLeagueMember = firebase.firestore().collection("BBD_LeagueMember");
+  GetLinePicture();
+  //CheckRH();
+  //CheckScore();
+  CheckScore();
+  CheckScoreLending();
+  //Achievement();
+}
+
+
+function GetLinePicture() {
+  var i = 0;
+  var str = "";
+  LineEmpIDArr = [];
+  LinePictureArr = [];
+  dbLeagueMember
+  .orderBy('EmpID','asc')
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      LineEmpIDArr.push(doc.data().EmpID);
+      LinePictureArr.push({ EmpID: doc.data().EmpID, EmpName: doc.data().LineName , EmpPicture: doc.data().LinePicture, EmpRef: doc.id });
+    });    
+  });
+}
+
+
+function OpenLink(page) {
+  var str = "";
+  if(page==1) {
+    location.href = 'intro.html';
+  } else if(page==2) {
+    location.href = 'home_about.html';
+  } else if(page==3) { // ประเมินผล
+    str += '<center>';
+    str += '<div class="btn-t3" style="margin-top:25px;">VDO แนะนำการแข่งขัน</div><div class="clr"></div>';
+    str += '<video id="video" style="max-width:450px;width:99%;margin:25px auto 5px auto;" controls="controls" autoplay>';
+    str += '<source src="https://firebasestorage.googleapis.com/v0/b/retailproject-6f4fc.appspot.com/o/vdo%2FBBDLeague.mp4?alt=media&token=62eb01b8-8c1f-4dca-955d-221dc4bba317" type="video/mp4"></video>';
+    str += '<div class="clr"></div><div class="btn-t2" onclick="CloseVDO()" style="margin-top:15px;">ปิดวิดีโอ</div>';
+    str += '</center><div class="clr" style="height: 25px;"></div>';
+    $("#DisplayVDO").html(str);  
+    document.getElementById('id01').style.display='block';
+  } else if(page==4) { // ดูภาพกิจกรรม
+    location.href = 'allteam.html';
+  } else if(page==5) { // เอกสารอบรม
+    location.href = 'rhpointmonth.html';
+  } else if(page==6) {
+    location.href = 'lendingproduct.html';
+  }
+  //location.href = 'notwork.html';
+}
+
+
+function Achievement() {
+  var str = "";
+  var sRH = "";
+  str += '<div class="btn-t33" style="margin-top:30px; background-color: #94a9b3;border: solid #94a9b3 1px;">BBD Championship - BA Life<br>ผลงานสะสม RH Championship<br>'+xMonthDetail+'</div>';
+  dbBBDRH.orderBy('TotalRank','asc')
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      if(sRH=="") { sRH = doc.data().EmpRH; }
+      str += '<div class="bar_background"><div style="padding-top:8px;">';
+      str += '<div class="bar_body"><div class="btn-t66" onclick="ShowZone(\''+ doc.data().EmpRH +'\')">'+ doc.data().EmpRH +'</div></div>';
+      if(doc.data().MTDTarget_1<doc.data().MTDIssue_1) { 
+        str += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar4" style="width:'+ doc.data().Total_100 +'"></div></div>';
+      } else {
+        str += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar2" style="width:'+ doc.data().Total_100 +'"></div></div>';
+      }
+      str += '<div class="bar_body1" onclick="OpenProfile(\''+ doc.id +'\')" style="width:15%;margin-left:10px;">'+ doc.data().Total_100 +'</div>';
+      str += '</div><div class="clr"></div></div>';
+      if(doc.data().EmpRH!=sRH) {
+        var str1 = "";
+        dbBBDKickoff.where('EmpRH','==', doc.data().EmpRH)
+        .orderBy('EmpZone','asc')
+        .get().then((snapshot)=> {
+          snapshot.forEach(doc=> {
+            //console.log(doc.data().EmpZone);
+            str1 += '<div class="bar_background"><div style="padding-top:8px;">';
+            str1 += '<div class="bar_body"><div class="btn-t66" onclick="OpenProfile1(\''+ doc.id +'\')">'+ doc.data().EmpZone +'</div></div>';
+            str1 += '<div class="progress2" style="float: left;width:60%;margin-top:6px;"><div class="bar2" style="width:'+ doc.data().Total_100 +'"></div></div>';
+            str1 += '<div class="bar_body1">'+ doc.data().APEAchieve_1 +'</div>';
+            str1 += '</div><div class="clr"></div></div>';
+          });
+          str += ''+str1;
+          //alert(str1);
+          sRH = doc.data().EmpRH;
+        })
+      }
+    });
+    $("#DisplayReport").html(str);  
+    document.getElementById('DisplayWaitting').style.display='none';
+    document.getElementById('DisplayReport').style.display='block';
+  })
+}
+
+
+function ShowZone(RH) {
+  var str = "";
+  str += '<center><div class="btn-t4" style="margin-top:30px;margin-bottom: 14px;">'+xThisMonth+'<br>ผลงานรวมของ ZONE สังกัด -> '+RH+'</div>';
+  dbBBDKickoff.where('EmpRH','==', RH)
+  .orderBy('NewRank','asc')
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      str += '<div class="bar_background"><div style="padding-top:8px;">';
+      str += '<div class="bar_body" style="width:30%;margin-right:6px;"><div class="btn-t666">'+ doc.data().EmpZone +'</div></div>';
+      if(doc.data().MTDTarget_1<doc.data().MTDIssue_1) {
+        str += '<div class="progress2" style="float: left;width:46%;margin-top:6px;"><div class="bar4" style="width:'+ doc.data().Total_100 +'"></div></div>';
+      } else {
+        str += '<div class="progress2" style="float: left;width:46%;margin-top:6px;"><div class="bar3" style="width:'+ doc.data().Total_100 +'"></div></div>';
+      }
+      str += '<div class="bar_body">'+ doc.data().Total_100 +'</div>';
+      str += '</div><div class="clr"></div></div>';
+    });
+    str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
+    str += '<div class="clr" style="height: 25px;"></div></center>';
+    $("#DisplayProfile").html(str);  
+    document.getElementById("id01").style.display = "block";
+  })
+}
+
+
+
+function OpenProfile(uid) {
+  var str = "";
+  dbBBDRH.where(firebase.firestore.FieldPath.documentId(), "==", uid)
+  .get().then((snapshot)=> {
+  snapshot.forEach(doc=> {
+      const results = LinePictureArr.filter(obj => {return obj.EmpID === doc.data().EmpID;});
+      str += '<center>';
+      str += '<div><img src="'+results[0].EmpPicture+'" class="add-profile" style="margin:30px auto 0px auto;" onerror="javascript:imgError(this)"></div>';
+      str += '<div class="text-1">'+doc.data().EmpName+'</div>';
+      str += '<div class="text-2" style="margin-top:0px;"><b>'+doc.data().EmpPosition+'</b> ('+ doc.data().EmpRH+')</div>';
+      str += '<div class="btn-t4">ผลงาน -> '+doc.data().Total_100+' | อันดับ -> '+doc.data().TotalRank+'</div>';
+
+      str += '<div>';
+      str += '<div class="btn-t77">1. หมวด % APE Achievement</div>';
+      str += '<table class="table table-bordered table-hover" style="width:90%; max-width: 400px; margin:auto;">';
+      str += '<thead class="thead-dark"><tr><th scope="col" class="col_td">รายการ</th><th scope="col" class="col_td">รายละเอียด</th></thead>';
+      str += '<tbody>';
+      str += '<tr><th scope="row">MTD Target</th><td style="text-align:center;">'+doc.data().MTDTarget_1+'</td></tr>';
+      str += '<tr><th scope="row">MTD Issue</th><td style="text-align:center;">'+doc.data().MTDIssue_1+'</td></tr>';
+      str += '<tr><th scope="row">% APE Achievement</th><td style="text-align:center;">'+doc.data().APEAchieve_1+'</td></tr>';
+      str += '</tbody>';
+      str += '</table>';
+
+      str += '<div class="btn-t77">2. หมวด % Focus Product Achievement</div>';
+      str += '<table class="table table-bordered table-hover" style="width:90%; max-width: 400px; margin:auto;">';
+      str += '<thead class="thead-dark"><tr><th scope="col" class="col_td">รายการ</th><th scope="col" class="col_td">รายละเอียด</th></thead>';
+      str += '<tbody>';
+      str += '<tr><th scope="row">Target</th><td style="text-align:center;">'+doc.data().ProductTarget_2+'</td></tr>';
+      str += '<tr><th scope="row">Product Focus</th><td style="text-align:center;">'+doc.data().ProductFocus_2 +'</td></tr>';
+      str += '<tr><th scope="row">% Target Focus Product</th><td style="text-align:center;">'+doc.data().ProductAchieve_2+'</td></tr>';
+      str += '</tbody>';
+      str += '</table>';
+
+      str += '<div class="btn-t77">3. Total % Weighted</div>';
+      str += '<table class="table table-bordered table-hover" style="width:90%; max-width: 400px; margin:auto;">';
+      str += '<thead class="thead-dark"><tr><th scope="col" class="col_td">รายการ</th><th scope="col" class="col_td">รายละเอียด</th></thead>';
+      str += '<tbody>';
+      str += '<tr><th scope="row">50% APE Achievement</th><td style="text-align:center;">'+doc.data().APE_50+'</td></tr>';
+      str += '<tr><th scope="row">50% Focused Product</th><td style="text-align:center;">'+doc.data().Product_50+'</td></tr>';
+      str += '<tr><th scope="row">% Total</th><td style="text-align:center;">'+doc.data().Total_100+'</td></tr>';
+      str += '<tr><th scope="row">Rank</th><td style="text-align:center;">'+doc.data().TotalRank+'</td></tr>';
+      str += '</tbody>';
+      str += '</table>';
+      str += '</div>';
+      str += '<div class="btn-t2" onclick="CloseAll()" style="margin-top:15px;">ปิดหน้าต่างนี้</div>';
+      str += '<div class="clr" style="height: 25px;"></div>';
+      str += '</center>';
+    });
+    $("#DisplayProfile").html(str);  
+    document.getElementById("id01").style.display = "block";
+  });
+}
+
+
+function imgError(image) {
+    image.onerror = "";
+    image.src = "./img/box.jpg";
+    return true;
+}
+
+
+function CloseAll() {
+  document.getElementById('id01').style.display='none';
+}
+
+function CheckScore() {
+  var i = 0;
+  dbBBDRH
+  .orderBy('EmpRH','asc')
+  //.orderBy('TotalPoint','desc')
+  //.orderBy('TotalRank','asc')
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      console.log(doc.data().EmpRH+" === "+doc.data().APE_50+" === "+doc.data().Product_50);
+      if(i==0) {
+        Zone1 = doc.data().EmpRH;
+        A1 = parseFloat(doc.data().APE_50);
+        A2 = parseFloat(doc.data().Product_50);
+      } else if(i==1) { 
+        Zone2 = doc.data().EmpRH;
+        B1 = parseFloat(doc.data().APE_50);
+        B2 = parseFloat(doc.data().Product_50);
+      } else if(i==2) { 
+        Zone3 = doc.data().EmpRH;
+        C1 = parseFloat(doc.data().APE_50);
+        C2 = parseFloat(doc.data().Product_50);
+      } else if(i==3) { 
+        Zone4 = doc.data().EmpRH;
+        D1 = parseFloat(doc.data().APE_50);
+        D2 = parseFloat(doc.data().Product_50);
+      } else if(i==4) { 
+        Zone5 = doc.data().EmpRH;
+        E1 = parseFloat(doc.data().APE_50);
+        E2 = parseFloat(doc.data().Product_50);
+      } else if(i==5) { 
+        Zone6 = doc.data().EmpRH;
+        F1 = parseFloat(doc.data().APE_50);
+        F2 = parseFloat(doc.data().Product_50);
+      }      
+      i++;
+    });
+    drawStacked();
+  })
+}
+
+
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawStacked);
+
+
+function drawStacked() {
+      var data = google.visualization.arrayToDataTable([
+        ['RH', '% APE Achievement', { role: 'annotation'}, '% Focus Product Achievement', { role: 'annotation'}],
+        ['RH1', A1, A1+"%", A2, A2+"%"],
+        ['RH2', B1, B1+"%", B2, B2+"%"],
+        ['RH3', C1, C1+"%", C2, C2+"%"],
+        ['RH4', D1, D1+"%", D2, D2+"%"],
+        ['RH5', E1, E1+"%", E2, E2+"%"],
+        ['RH6', F1, F1+"%", F2, F2+"%"]
+      ]);
+
+      var options = {
+        annotations: {textStyle: { fontName: 'ekachon-regular' }},
+        hAxis: {textStyle: { fontName: 'ekachon-regular' }, titleTextStyle: { fontName: 'ekachon-regular' }},
+        vAxis: {textStyle: { fontName: 'ekachon-regular' }, titleTextStyle: { fontName: 'ekachon-regular' }},
+        titleTextStyle: { fontName: 'ekachon-regular' },
+        tooltip: {textStyle: {fontName: 'ekachon-regular' }},
+        fontName: 'ekachon-regular',
+        fontSize: 11,
+        width: 360,
+        height: 300,
+        chartArea: {width: '80%'},
+        legend: { position: 'top', maxLines: 3 },
+        bar: { groupWidth: '90%' },
+        backgroundColor: '#dbe5f3',
+        isStacked: true,
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+}
+
+
+
+
+
+function CheckScoreLending() {
+  var i = 0;
+  dbLendingRH
+  .orderBy('EmpRH','asc')
+  //.orderBy('TotalPoint','desc')
+  //.orderBy('TotalRank','asc')
+  .get().then((snapshot)=> {
+    snapshot.forEach(doc=> {
+      console.log(doc.data().EmpRH+" === "+doc.data().Target_1+" === "+doc.data().Target_2+" === "+doc.data().Target_3);
+      if(i==0) {
+        Zone1 = doc.data().EmpRH;
+        AA1 = parseFloat(doc.data().Target_1);
+        AA2 = parseFloat(doc.data().Target_2);
+        AA3 = parseFloat(doc.data().Target_3);
+      } else if(i==1) { 
+        Zone2 = doc.data().EmpRH;
+        BB1 = parseFloat(doc.data().Target_1);
+        BB2 = parseFloat(doc.data().Target_2);
+        BB3 = parseFloat(doc.data().Target_3);
+      } else if(i==2) { 
+        Zone3 = doc.data().EmpRH;
+        CC1 = parseFloat(doc.data().Target_1);
+        CC2 = parseFloat(doc.data().Target_2);
+        CC3 = parseFloat(doc.data().Target_3);
+      } else if(i==3) { 
+        Zone4 = doc.data().EmpRH;
+        DD1 = parseFloat(doc.data().Target_1);
+        DD2 = parseFloat(doc.data().Target_2);
+        DD3 = parseFloat(doc.data().Target_3);
+      } else if(i==4) { 
+        Zone5 = doc.data().EmpRH;
+        EE1 = parseFloat(doc.data().Target_1);
+        EE2 = parseFloat(doc.data().Target_2);
+        EE3 = parseFloat(doc.data().Target_3);
+      } else if(i==5) { 
+        Zone6 = doc.data().EmpRH ;
+        FF1 = parseFloat(doc.data().Target_1);
+        FF2 = parseFloat(doc.data().Target_2);
+        FF3 = parseFloat(doc.data().Target_3);
+      }
+      i++;
+    });
+    drawStackedLending();
+  })
+}
+
+google.charts.setOnLoadCallback(drawStackedLending);
+
+
+function drawStackedLending() {
+      var data = google.visualization.arrayToDataTable([
+        ['Zone', '% CYH',{ role: 'annotation'}, '% C2G BT CCC',{ role: 'annotation'}, '% CC FC',{ role: 'annotation'}],
+        [ Zone1, AA1, AA1+"%", AA2, AA2+"%", AA3, AA3+"%"],
+        [ Zone2, BB1, BB1+"%", BB2, BB2+"%", BB3, BB3+"%"],
+        [ Zone3, CC1, CC1+"%", CC2, CC2+"%", CC3, CC3+"%"],
+        [ Zone4, DD1, DD1+"%", DD2, DD2+"%", DD3, DD3+"%"],
+        [ Zone5, EE1, EE1+"%", EE2, EE2+"%", EE3, EE3+"%"],
+        [ Zone6, FF1, FF1+"%", FF2, FF2+"%", FF3, FF3+"%"]
+      ]);
+
+      var options = {
+        annotations: {textStyle: { fontName: 'ekachon-regular' }},
+        hAxis: {textStyle: { fontName: 'ekachon-regular' }, titleTextStyle: { fontName: 'ekachon-regular' }},
+        vAxis: {textStyle: { fontName: 'ekachon-regular' }, titleTextStyle: { fontName: 'ekachon-regular' }},
+        titleTextStyle: { fontName: 'ekachon-regular' },
+        tooltip: {textStyle: {fontName: 'ekachon-regular' }},
+        fontName: 'ekachon-regular',
+        fontSize: 11,
+        width: 360,
+        height: 300,
+        chartArea: {width: '80%'},
+        legend: { position: 'top', maxLines: 3 },
+        bar: { groupWidth: '90%' },
+        backgroundColor: '#dbe5f3',
+        isStacked: true,
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
+      chart.draw(data, options);
+}
